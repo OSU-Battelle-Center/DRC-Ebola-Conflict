@@ -71,7 +71,7 @@
     </div>
     </div>
 
-    <script src='//d3js.org/d3.v3.min.js' charset='utf-8'></script>
+    <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiZWFydGhhZGFtIiwiYSI6ImNpenJpcTFkbjAwODUyd21mcXhhN3NscG4ifQ.5aXKquX7sLeQr6xFLdghFg';
 
@@ -82,9 +82,9 @@ function numberWithCommas(x) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
+    //style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
     //style: 'mapbox://styles/earthadam/cjggwuqty000n2rltfwjtdfik',	//Presentation
-    //style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
+    style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
     //style: 'mapbox://styles/earthadam/cjs968jaf2e1j1fmp6hj0pwwn',
     center: [28.771726,-0.384252],
     zoom: 7
@@ -115,7 +115,7 @@ function filterBy(month) {
     document.getElementById('month').textContent = months[month];
 }
 map.on('load', function() {
-    d3.json('nord-kivu-violence.json', function(err, data) {
+    d3.json('nord-kivu-violence.geojson', function(err, data) {
         if (err) throw err;
         
         // Create a month property value based on time
@@ -124,61 +124,55 @@ map.on('load', function() {
             d.properties.month = new Date(d.properties.time).getMonth();
             return d;
         });
- 
-        map.addSource('earthquakes', {
-        'type': 'geojson',
-        data: data
+        map.addSource('incidents', { type: 'geojson', data: data });
+
+        map.addLayer({
+            "id": "sites",
+            "type": "circle",
+            source: "incidents",
+            'paint': {
+                // make circles larger as the user zooms from z12 to z22
+                'circle-radius': {
+                    'base': 10,
+                    'stops': [[12, 3], [22, 100]]
+                },
+                // color circles by ethnicity, using a match expression
+                // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+                'circle-color': '#f00'
+            }
         });
-            map.addSource('incidents', { type: 'geojson', data: 'nord-kivu-violence.json' });
-            //map.addSource('projects', { type: 'geojson', data: 'https://github.com/OhioAdam/RemoteMonitorMap/blob/master/projects.geojson' });
-            // Add a layer showing the places.
-            map.addLayer({
-                "id": "sites",
-                "type": "circle",
-                source: "incidents",
-                'paint': {
-                    // make circles larger as the user zooms from z12 to z22
-                    'circle-radius': {
-                        'base': 10,
-                        'stops': [[12, 3], [22, 100]]
-                    },
-                    // color circles by ethnicity, using a match expression
-                    // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-                    'circle-color': '#f00'
-                }
-            });
-            // Create a popup, but don't add it to the map yet.
-            var popup = new mapboxgl.Popup({
-                closeButton: false,
-                closeOnClick: false
-            });
-
-            map.on('mouseover', 'sites', function(e) {
-                // Change the cursor style as a UI indicator.
-                map.getCanvas().style.cursor = 'pointer';
-
-                // Populate the popup and set its coordinates
-                // based on the feature found.
-                popup.setLngLat(e.features[0].geometry.coordinates)
-                    .setHTML(
-                    "<h2>"+ e.features[0].properties["title"]["en"]+"</h2>"+
-                    "<b>Incident ID: "+e.features[0].properties["incident_id"]+"<br>"
-                    )
-                    //.setHTML(e.features[0].properties.description)
-                    .addTo(map);
-            });
-
-            map.on('click', function() {
-                map.getCanvas().style.cursor = '';
-                popup.remove();
-            });
-            filterBy(0);
-
-            document.getElementById('slider').addEventListener('input', function(e) {
-                var month = parseInt(e.target.value, 10);
-                filterBy(month);
-            });
+        // Create a popup, but don't add it to the map yet.
+        var popup = new mapboxgl.Popup({
+            closeButton: false,
+            closeOnClick: false
         });
+
+        map.on('mouseover', 'sites', function(e) {
+            // Change the cursor style as a UI indicator.
+            map.getCanvas().style.cursor = 'pointer';
+
+            // Populate the popup and set its coordinates
+            // based on the feature found.
+            popup.setLngLat(e.features[0].geometry.coordinates)
+                .setHTML(
+                "<h2>"+ e.features[0].properties["title"]["en"]+"</h2>"+
+                "<b>Incident ID: "+e.features[0].properties["incident_id"]+"<br>"
+                )
+                //.setHTML(e.features[0].properties.description)
+                .addTo(map);
+        });
+
+        map.on('click', function() {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+        });
+        filterBy(0);
+
+        document.getElementById('slider').addEventListener('input', function(e) {
+            var month = parseInt(e.target.value, 10);
+            filterBy(month);
+        });
+    });
 
 });
 </script>
