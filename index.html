@@ -115,17 +115,8 @@ function filterBy(month) {
     document.getElementById('month').textContent = months[month];
 }
 map.on('load', function() {
-    d3.json('nord-kivu-violence.geojson', function(err, data) {
-        if (err) throw err;
-        
-        // Create a month property value based on time
-        // used to filter against.
-        data.features = data.features.map(function(d) {
-            d.properties.month = new Date(d.properties.time).getMonth();
-            return d;
-        });
-        map.addSource('incidents', { type: 'geojson', data: data });
-
+    
+        map.addSource('incidents', { type: 'geojson', data: 'nord-kivu-violence.json'});
         map.addLayer({
             "id": "sites",
             "type": "circle",
@@ -161,19 +152,6 @@ map.on('load', function() {
                 //.setHTML(e.features[0].properties.description)
                 .addTo(map);
         });
-
-        map.on('click', function() {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-        });
-        filterBy(0);
-
-        document.getElementById('slider').addEventListener('input', function(e) {
-            var month = parseInt(e.target.value, 10);
-            filterBy(month);
-        });
-    });
-
 });
 </script>
 
