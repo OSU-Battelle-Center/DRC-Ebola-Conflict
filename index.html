@@ -22,7 +22,7 @@
         left: 0;
         padding: 10px;
         }
-         
+
         .map-overlay .map-overlay-inner {
         background-color: #fff;
         box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
@@ -30,19 +30,19 @@
         padding: 10px;
         margin-bottom: 10px;
         }
-         
+
         .map-overlay h2 {
         line-height: 24px;
         display: block;
         margin: 0 0 10px;
         }
-         
+
         .map-overlay .legend .bar {
         height: 10px;
         width: 100%;
         background: linear-gradient(to right, #FCA107, #7F3121);
         }
-         
+
         .map-overlay input {
         background-color: transparent;
         display: inline-block;
@@ -82,9 +82,9 @@ function numberWithCommas(x) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    //style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
+    style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
     //style: 'mapbox://styles/earthadam/cjggwuqty000n2rltfwjtdfik',	//Presentation
-    style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
+    //style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
     //style: 'mapbox://styles/earthadam/cjs968jaf2e1j1fmp6hj0pwwn',
     center: [28.771726,-0.384252],
     zoom: 7
@@ -105,17 +105,17 @@ var months = [
 'November',
 'December'
 ];
- 
+
 function filterBy(month) {
- 
+
     var filters = ['==', 'month', month];
     map.setFilter('sites', filters);
-    
+
     // Set the label to the month
     document.getElementById('month').textContent = months[month];
 }
 map.on('load', function() {
-    
+
         map.addSource('incidents', { type: 'geojson', data: 'nord-kivu-violence.json'});
         map.addLayer({
             "id": "sites",
