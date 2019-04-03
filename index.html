@@ -119,7 +119,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZWFydGhhZGFtIiwiYSI6ImNpenJpcTFkbjAwODUyd21mc
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
+    style: 'mapbox://styles/osu-battelle-center/cjsqq2icr01591foxt2ctxcoe',	//Website
     //style: 'mapbox://styles/earthadam/cjsqgd0ab0d831fqaev53tfhk',
     //style: 'mapbox://styles/earthadam/cjggwuqty000n2rltfwjtdfik',	//Presentation
     //style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
@@ -146,7 +146,7 @@ var months = [
 
 map.on('load', function() {
     map.addLayer({
-        "id": "sites",
+        "id": "violence",
         "type": "circle",
         "source": {
             type: 'vector',
@@ -166,10 +166,48 @@ map.on('load', function() {
         closeButton: false,
         closeOnClick: false
     });
+    map.addLayer({
+      'id': 'site assessments',
+      'type': 'circle',
+      'source': {
+        type: 'vector',
+        url: 'mapbox://earthadam.9ma7vast'
+      },
+      'source-layer': 'Nord_kivu_Site_Assessment_Dec-9mop9a',
+      'paint': {
+      // make circles larger as the user zooms from z12 to z22
+        'circle-radius': {
+          'base': 5,
+          'stops': [[12, 4], [22, 10]]
+      },
+      // color circles by ethnicity, using a match expression
+      // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+      'circle-color': '#ff0f0f'
+    }
+  });
+  map.addLayer({
+      'id': 'clinics',
+      'type': 'circle',
+      'source': {
+        type: 'vector',
+        url: 'mapbox://earthadam.5saiimyv'
+      },
+      'source-layer': 'democratic-republic-of-the-co-2wxxrb',
+      'paint': {
+      // make circles larger as the user zooms from z12 to z22
+        'circle-radius': {
+          'base': 5,
+          'stops': [[12, 4], [22, 10]]
+      },
+      // color circles by ethnicity, using a match expression
+      // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+      'circle-color': '#ff05c5'
+    }
+  });
 
 });
 
-var toggleableLayerIds = [ 'sites'];
+var toggleableLayerIds = [ 'violence','site assessments', 'clinics'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
