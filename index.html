@@ -216,14 +216,14 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
+    map.addSource('clinics', {
+        type: 'geojson',
+        data: 'https://data.humdata.org/dataset/104bfeb2-f102-4770-90a7-fc8372b488f0/resource/eea74020-28b0-460f-95aa-450d70bb3d85/download/democratic-republic-of-the-congo.geojson'
+    });
   map.addLayer({
       'id': 'clinics',
       'type': 'circle',
-      'source': {
-        type: 'vector',
-        url: 'mapbox://earthadam.5saiimyv'
-      },
-      'source-layer': 'democratic-republic-of-the-co-2wxxrb',
+      'source': 'clinics',
       'paint': {
       // make circles larger as the user zooms from z12 to z22
         'circle-radius': {
