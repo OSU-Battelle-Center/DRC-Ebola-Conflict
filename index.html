@@ -146,7 +146,7 @@ var months = [
 map.on('load', function() {
     map.addSource('violence', {
         type: 'geojson',
-        data: 'Data/kivu_security.geojson'
+        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/kivu_security.geojson'
     });
     map.addLayer({
     "id": "violence",
@@ -181,14 +181,14 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
+    map.addSource('site assessments', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/site_assessment_30.geojson'
+    });
     map.addLayer({
       'id': 'site assessments',
       'type': 'circle',
-      'source': {
-        type: 'vector',
-        url: 'mapbox://earthadam.9ma7vast'
-      },
-      'source-layer': 'Nord_kivu_Site_Assessment_Dec-9mop9a',
+      'source': 'site assessments',
       'paint': {
       // make circles larger as the user zooms from z12 to z22
         'circle-radius': {
