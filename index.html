@@ -118,7 +118,7 @@
 
     <script src='https://d3js.org/d3.v3.min.js' charset='utf-8'></script>
 <script>
-mapboxgl.accessToken = 'pk.eyJ1IjoiZWFydGhhZGFtIiwiYSI6ImNpenJpcTFkbjAwODUyd21mcXhhN3NscG4ifQ.5aXKquX7sLeQr6xFLdghFg';
+mapboxgl.accessToken = 'pk.eyJ1Ijoib3N1LWJhdHRlbGxlLWNlbnRlciIsImEiOiJjanNxaHk0bm4xOGJwM3lwNmxiYjB6bWswIn0.8wMb3NDgrpO-ccAw_hPWUQ';
 
 var map = new mapboxgl.Map({
     container: 'map',
@@ -144,15 +144,15 @@ var months = [
 ];
 
 map.on('load', function() {
+    map.addSource('violence', {
+        type: 'geojson',
+        data: 'Data/kivu_security.geojson'
+    });
     map.addLayer({
-        "id": "violence",
-        "type": "circle",
-        "source": {
-            type: 'vector',
-            url: 'mapbox://osu-battelle-center.80s4hd6i'
-        },
-        'source-layer': 'convertcsv-8j11wq',
-        "paint": {
+    "id": "violence",
+    "type": "circle",
+    "source": "violence",
+    "paint": {
             'circle-radius': {  
                 'base': 10,
                 'stops': [[12, 3], [22, 10]]
@@ -162,8 +162,8 @@ map.on('load', function() {
     });
     // Create a popup, but don't add it to the map yet.
     var popup = new mapboxgl.Popup({
-        closeButton: false,
-        closeOnClick: false
+        closeButton: true,
+        closeOnClick: true
     });
     map.on('mouseover', 'violence', function(e) {
         // Change the cursor style as a UI indicator.
@@ -180,6 +180,10 @@ map.on('load', function() {
             )
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
+    });
+    map.on('mouseleave', 'violence', function() {
+        map.getCanvas().style.cursor = '';
+        popup.remove();
     });
     map.addLayer({
       'id': 'site assessments',
