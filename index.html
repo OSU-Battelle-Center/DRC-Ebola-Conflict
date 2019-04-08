@@ -181,10 +181,6 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.on('mouseleave', 'violence', function() {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    });
     map.addLayer({
       'id': 'site assessments',
       'type': 'circle',
@@ -204,6 +200,22 @@ map.on('load', function() {
       'circle-color': '#ff0f0f'
     }
   });
+  map.on('mouseover', 'site assessments', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["Site"]+"</h2>"+
+                "<b>Date:</b> "+e.features[0].properties["Date"]+"<br>"+
+                "<b>City:</b> "+e.features[0].properties["City"]+"<br>"+
+                "<b>Place:</b> "+e.features[0].properties["Place"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
   map.addLayer({
       'id': 'clinics',
       'type': 'circle',
@@ -223,6 +235,22 @@ map.on('load', function() {
       'circle-color': '#ff05c5'
     }
   });
+  map.on('mouseover', 'clinics', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["Name"]+"</h2>"+
+                "<b>Date Modified:</b> "+e.features[0].properties["date_modified"]+"<br>"+
+                "<b>Notes:</b> "+e.features[0].properties["notes"]+"<br>"+
+                "<b>Address:</b> "+e.features[0].properties["physical-address"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
 
 });
 
