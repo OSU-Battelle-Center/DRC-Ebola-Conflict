@@ -14,6 +14,47 @@
 </head>
 <body>
     <style>
+        #menu {
+        background: #fff;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        border-radius: 3px;
+        width: 120px;
+        border: 1px solid rgba(0,0,0,0.4);
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    #menu a {
+        font-size: 13px;
+        color: #404040;
+        display: block;
+        margin: 0;
+        padding: 0;
+        padding: 10px;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(0,0,0,0.25);
+        text-align: center;
+    }
+
+    #menu a:last-child {
+        border: none;
+    }
+
+    #menu a:hover {
+        background-color: #f8f8f8;
+        color: #404040;
+    }
+
+    #menu a.active {
+        background-color: #3887be;
+        color: #ffffff;
+    }
+
+    #menu a.active:hover {
+        background: #3074a4;
+    }
         .map-overlay {
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         position: absolute;
@@ -24,7 +65,7 @@
         }
 
         .map-overlay .map-overlay-inner {
-        background-color: #fff;
+        background-color: #777;
         box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
         border-radius: 3px;
         padding: 10px;
@@ -55,7 +96,11 @@
             max-width: 400px;
             font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
         }
+        .mapboxgl-popup-content {
+            background: #f5c0c0;
+            }
     </style>
+<nav id="menu"></nav>
 <div id='map'></div>
 <div class='map-overlay top'>
     <div class='map-overlay-inner'>
@@ -75,14 +120,10 @@
 <script>
 mapboxgl.accessToken = 'pk.eyJ1IjoiZWFydGhhZGFtIiwiYSI6ImNpenJpcTFkbjAwODUyd21mcXhhN3NscG4ifQ.5aXKquX7sLeQr6xFLdghFg';
 
-//Add commas and stuff to cost value
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/earthadam/cjscdcqkc056x1fo0far47a3g',	//Website
+    style: 'mapbox://styles/osu-battelle-center/cjsqq2icr01591foxt2ctxcoe',	//Website
+    //style: 'mapbox://styles/earthadam/cjsqgd0ab0d831fqaev53tfhk',
     //style: 'mapbox://styles/earthadam/cjggwuqty000n2rltfwjtdfik',	//Presentation
     //style: 'mapbox://styles/earthadam/cjggwweef00002rpuoj1t93h3',	//Desert
     //style: 'mapbox://styles/earthadam/cjs968jaf2e1j1fmp6hj0pwwn',
@@ -106,53 +147,114 @@ var months = [
 'December'
 ];
 
-function filterBy(month) {
-
-    var filters = ['==', 'month', month];
-    map.setFilter('sites', filters);
-
-    // Set the label to the month
-    document.getElementById('month').textContent = months[month];
-}
 map.on('load', function() {
+    map.addLayer({
+        "id": "violence",
+        "type": "circle",
+        "source": {
+            type: 'vector',
+            url: 'mapbox://osu-battelle-center.80s4hd6i'
+        },
+        'source-layer': 'convertcsv-8j11wq',
+        "paint": {
+            'circle-radius': {
+                'base': 10,
+                'stops': [[12, 3], [22, 10]]
+            },
+            'circle-color': '#880000'
+        }
+    });
+    // Create a popup, but don't add it to the map yet.
+    var popup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false
+    });
+    map.on('mouseover', 'violence', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
 
-        map.addSource('incidents', { type: 'geojson', data: 'nord-kivu-violence.json'});
-        map.addLayer({
-            "id": "sites",
-            "type": "circle",
-            source: "incidents",
-            'paint': {
-                // make circles larger as the user zooms from z12 to z22
-                'circle-radius': {
-                    'base': 10,
-                    'stops': [[12, 3], [22, 100]]
-                },
-                // color circles by ethnicity, using a match expression
-                // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-                'circle-color': '#f00'
-            }
-        });
-        // Create a popup, but don't add it to the map yet.
-        var popup = new mapboxgl.Popup({
-            closeButton: false,
-            closeOnClick: false
-        });
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
+                "<b>Date:</b> "+e.features[0].properties["start_date_time/date"]+"<br>"+
+                "<b>Severity:</b> "+e.features[0].properties["severity_rating"]+"<br>"+
+                "<b>Details:</b> "+e.features[0].properties["title/0/en"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
+    map.addLayer({
+      'id': 'site assessments',
+      'type': 'circle',
+      'source': {
+        type: 'vector',
+        url: 'mapbox://earthadam.9ma7vast'
+      },
+      'source-layer': 'Nord_kivu_Site_Assessment_Dec-9mop9a',
+      'paint': {
+      // make circles larger as the user zooms from z12 to z22
+        'circle-radius': {
+          'base': 5,
+          'stops': [[12, 4], [22, 10]]
+      },
+      // color circles by ethnicity, using a match expression
+      // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+      'circle-color': '#ff0f0f'
+    }
+  });
+  map.addLayer({
+      'id': 'clinics',
+      'type': 'circle',
+      'source': {
+        type: 'vector',
+        url: 'mapbox://earthadam.5saiimyv'
+      },
+      'source-layer': 'democratic-republic-of-the-co-2wxxrb',
+      'paint': {
+      // make circles larger as the user zooms from z12 to z22
+        'circle-radius': {
+          'base': 5,
+          'stops': [[12, 4], [22, 10]]
+      },
+      // color circles by ethnicity, using a match expression
+      // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+      'circle-color': '#ff05c5'
+    }
+  });
 
-        map.on('mouseover', 'sites', function(e) {
-            // Change the cursor style as a UI indicator.
-            map.getCanvas().style.cursor = 'pointer';
-
-            // Populate the popup and set its coordinates
-            // based on the feature found.
-            popup.setLngLat(e.features[0].geometry.coordinates)
-                .setHTML(
-                "<h2>"+ e.features[0].properties["title"]["en"]+"</h2>"+
-                "<b>Incident ID: "+e.features[0].properties["incident_id"]+"<br>"
-                )
-                //.setHTML(e.features[0].properties.description)
-                .addTo(map);
-        });
 });
+
+var toggleableLayerIds = [ 'violence','site assessments', 'clinics'];
+
+for (var i = 0; i < toggleableLayerIds.length; i++) {
+    var id = toggleableLayerIds[i];
+
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'active';
+    link.textContent = id;
+
+    link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+
+        if (visibility === 'visible') {
+            map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+            this.className = '';
+        } else {
+            this.className = 'active';
+            map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+    };
+
+    var layers = document.getElementById('menu');
+    layers.appendChild(link);
+}
 </script>
 
 </body>
