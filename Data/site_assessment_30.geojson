@@ -1,0 +1,421 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004030202SS",
+        "Site": "BUSHANI",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "OSSO BANYUNGU",
+        "sd": "COD610303",
+        "ddd": "BIIRI",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "437",
+        "Individuals": "1292",
+        "Males": "557",
+        "Females": "735",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "WALIKALE",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.743608,
+          -1.316087
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000401SS",
+        "Site": "JTN",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "RUTSHURU",
+        "ID2": "COD6111",
+        "Place": "BWITO",
+        "sd": "COD611101",
+        "ddd": "KIHONDO",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "0",
+        "Individuals": "0",
+        "Males": "0",
+        "Females": "0",
+        "Origin": "",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.055,
+          -1.10381
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000800SS",
+        "Site": "KABIZO",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "RUTSHURU",
+        "ID2": "COD6111",
+        "Place": "BWITO",
+        "sd": "COD611101",
+        "ddd": "TONGO",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "1706",
+        "Individuals": "7574",
+        "Males": "3411",
+        "Females": "4163",
+        "Origin": "RUTSHURU",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6111",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "WALIKALE",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.22758,
+          -1.16402
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000700SS",
+        "Site": "KANABA",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "RUTSHURU",
+        "ID2": "COD6111",
+        "Place": "BWITO",
+        "sd": "COD611101",
+        "ddd": "TONGO",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "1458",
+        "Individuals": "5661",
+        "Males": "2489",
+        "Females": "3172",
+        "Origin": "RUTSHURU",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6111",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "MASISI",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.22041,
+          -1.22834
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004000204SS",
+        "Site": "KASENYI",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "BAHUNDE",
+        "sd": "COD610307",
+        "ddd": "MUPFUNI KIBABI",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "724",
+        "Individuals": "2002",
+        "Males": "791",
+        "Females": "1211",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "WALIKALE",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.743,
+          -1.616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004030100SS",
+        "Site": "KATALE",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "OSSO BANYUNGU",
+        "sd": "COD610303",
+        "ddd": "BAPFUNA",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "1734",
+        "Individuals": "5883",
+        "Males": "2480",
+        "Females": "3403",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "RUTSHURU",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.87328,
+          -1.43901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004020200SS",
+        "Site": "KATOYI",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "KATOYI",
+        "sd": "COD610302",
+        "ddd": "NYALIPE",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "542",
+        "Individuals": "1424",
+        "Males": "598",
+        "Females": "826",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "RUTSHURU",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.774,
+          -1.588
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004000200SS",
+        "Site": "KIBABI/BUPORO",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "BAHUNDE",
+        "sd": "COD610307",
+        "ddd": "MUPFUNI KIBABI",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "590",
+        "Individuals": "2486",
+        "Males": "1185",
+        "Females": "1301",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "RUTSHURU",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.849311,
+          -1.54919
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004000202SS",
+        "Site": "KIBABI/POLICE",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "BAHUNDE",
+        "sd": "COD610307",
+        "ddd": "MUPFUNI KIBABI",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "327",
+        "Individuals": "1361",
+        "Males": "680",
+        "Females": "681",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "WALIKALE",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.830086,
+          -1.555794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000101SS",
+        "Site": "KIZIMBA",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "RUTSHURU",
+        "ID2": "COD6111",
+        "Place": "BWITO",
+        "sd": "COD611101",
+        "ddd": "BISHUSHA",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "881",
+        "Individuals": "2511",
+        "Males": "1054",
+        "Females": "1457",
+        "Origin": "RUTSHURU",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6111",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "MASISI",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.094417,
+          -1.248806
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08004010104SS",
+        "Site": "MALEMO",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "BASHALI",
+        "sd": "COD610304",
+        "ddd": "BASHALI MUKOTO",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "0",
+        "Individuals": "0",
+        "Males": "0",
+        "Females": "0",
+        "Origin": "",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.87767856,
+          -0.994990223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000108SS",
+        "Site": "MUHETO",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "MASISI",
+        "ID2": "COD6103",
+        "Place": "BASHALI",
+        "sd": "COD610304",
+        "ddd": "BASHALI KAEMBE",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "682",
+        "Individuals": "1967",
+        "Males": "808",
+        "Females": "1159",
+        "Origin": "MASISI",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6103",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "RUTSHURU",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.95,
+          -1.336
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "18-Nov",
+        "weirdTag": "DRC08007000600SS",
+        "Site": "RUSHASHI",
+        "Admin 0 iso3": "COD",
+        "Admin": "Nork-Kivu",
+        "ID": "COD61",
+        "City": "RUTSHURU",
+        "ID2": "COD6111",
+        "Place": "BWITO",
+        "sd": "COD611101",
+        "ddd": "TONGO",
+        "Admin 4 Pcode": "",
+        "Number of Menages": "828",
+        "Individuals": "3427",
+        "Males": "1612",
+        "Females": "1815",
+        "Origin": "RUTSHURU",
+        "Zone d'origine du plus grand PDI group  (Admin 2 Pcode)": "COD6111",
+        "1.5.c.2 Zone d'origine du deuxieme plus grand PDI group (Admin 2)": "WALIKALE",
+        "Zone d'origine du deuxieme plus grand PDI group (Admin 2 Pcode)": "COD6111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          29.20164,
+          -1.12507
+        ]
+      }
+    }
+  ]
+}
