@@ -101,6 +101,40 @@ map.on('load', function() {
             'circle-color': '#ff0f0f'
             }
     });
+    map.addSource('vaccinations', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
+    });
+    map.addLayer({
+        'id': 'vaccinations',
+        'type': 'circle',
+        'source': 'vaccinations',
+        'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+                'base': 5,
+                'stops': [[12, 4], [22, 10]]
+                },
+            // color circles by ethnicity, using a match expression
+            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': '#00aa00'
+            }
+    });
+    map.on('mouseover', 'vaccinations', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["City"]+"</h2>"+
+                "<b>Date Modified:</b> "+e.features[0].properties["Date Updated"]+"<br>"+
+                "<b>Vaccinations:</b> "+e.features[0].properties["Vaccinations"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.347zqs23'
@@ -217,7 +251,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'violence','site assessments', 'clinics'];
+var toggleableLayerIds = [ 'violence','site assessments', 'clinics','vaccinations'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
