@@ -16,6 +16,7 @@ var months = [
 ];
 
 function filterBy(month) {
+
   var filters = ['==', 'month', month];
   map.setFilter('violence', filters);
 
@@ -53,7 +54,7 @@ map.on('load', function() {
         "type": "circle",
         "source": "violence",
         "paint": {
-                'circle-radius': {  
+                'circle-radius': {
                     'base': 10,
                     'stops': [[12, 3], [22, 10]]
                 },
@@ -127,7 +128,7 @@ map.on('load', function() {
         'paint': {
         // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
-                'base': 5,
+                'base': 10,
                 'stops': [[12, 4], [22, 10]]
             },
             // color circles by ethnicity, using a match expression
@@ -152,7 +153,7 @@ map.on('load', function() {
             .addTo(map);
     });
     filterBy(0);
-    
+
     document.getElementById('slider').addEventListener('input', function(e) {
         var month = parseInt(e.target.value, 10);
         filterBy(month);
