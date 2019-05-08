@@ -309,10 +309,9 @@ map.on('load', function() {
         // based on the feature found.
         popup.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(
-                "<h2>"+e.features[0].properties["Name"]+"</h2>"+
+                "<h2>Health Site: "+e.features[0].properties["name"]+"</h2>"+
                 "<b>Date Modified:</b> "+e.features[0].properties["date_modified"]+"<br>"+
-                "<b>Notes:</b> "+e.features[0].properties["notes"]+"<br>"+
-                "<b>Address:</b> "+e.features[0].properties["physical-address"]
+                "<b>Type:</b> "+e.features[0].properties["type"]
             )
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
