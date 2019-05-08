@@ -30,12 +30,17 @@ p {
   font-size: 30px;
   color: #777;
   display: block;
-  margin: 10px;
+  margin: 0px;
+  border-color: #999;
+  outline-color: #999;
+  -webkit-border-before-color: #888;
   padding: 10px;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
   border-radius: 3px;
   text-align: center;
+  text-emphasis-color: #000000;
+  -webkit-text-fill-color: #000000;
 }
 
 #menu a:last-child {
