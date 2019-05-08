@@ -26,14 +26,101 @@ function filterBy(month) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/osu-battelle-center/cjsqq2icr01591foxt2ctxcoe',
-    center: [28.771726,-0.384252],
-    zoom: 7
+    style: 'mapbox://styles/osu-battelle-center/cjvefnopv76ve1gmpwufy4pio',
+    center: [28,-0],
+    zoom: 6.8
 });
 
 var icon = "circle";
 
 map.on('load', function() {
+    map.addSource('pop', {
+        type: 'vector',
+        url: 'mapbox://osu-battelle-center.26nno8uj'
+    });
+    map.addLayer({
+        id: 'Population',
+        type: 'heatmap',
+        source: 'pop',
+        maxzoom: 22,
+        'source-layer': 'Population',
+        paint: {
+          // increase weight as diameter breast height increases
+          'heatmap-weight': {
+            property: 'Population',
+            type: 'exponential',
+            stops: [
+              [1, 0],
+              [62, 1]
+            ]
+          },
+          // increase intensity as zoom level increases
+          'heatmap-intensity': {
+            stops: [
+              [11, 1],
+              [15, 3]
+            ]
+          },
+          // assign color values be applied to points depending on their density
+          'heatmap-color': [
+            'interpolate',
+            ['linear'],
+            ['heatmap-density'],
+            0, 'rgba(0,0,255,0)',
+            0.1, 'rgba(65,105,225,1)',
+            0.3, 'rgba(0,255,255,1)',
+            0.5, 'rgba(0,255,0,1)',
+            0.7, 'rgba(255,255,0,1)',
+            1, 'rgba(255,0,0,1)'
+          ],
+          // increase radius as zoom increases
+          'heatmap-radius': {
+            stops: [
+              [11, 15],
+              [15, 20]
+            ]
+          },
+          // decrease opacity to transition into the circle layer
+          'heatmap-opacity': {
+            default: 0.44,
+            stops: [
+              [14, 0.44],
+              [15, 0.44]
+            ]
+          },
+        }
+      });
+    map.addLayer({
+        "id": "route",
+        "type": "line",
+        "source": {
+        "type": "geojson",
+        "data": {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+        "type": "LineString",
+        "coordinates": [
+            [26,-3],
+            [26,3],
+            [31,3],
+            [31,-3],
+            [26,-3]
+
+        ]
+        }
+        }
+        },
+        "layout": {
+        "line-join": "round",
+        "line-cap": "round"
+        },
+        "paint": {
+        "line-color": "#888",
+        "line-width": 8
+        }
+        });
+    
   d3.json('https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/kivu_security.geojson', function(err, data) {
     if (err) throw err;
 
@@ -135,61 +222,6 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.addSource('pop', {
-        type: 'vector',
-        url: 'mapbox://osu-battelle-center.347zqs23'
-    });
-    map.addLayer({
-        id: 'pop-dens',
-        type: 'heatmap',
-        source: 'pop',
-        maxzoom: 22,
-        'source-layer': 'populations-2dl34g',
-        paint: {
-          // increase weight as diameter breast height increases
-          'heatmap-weight': {
-            property: 'Population',
-            type: 'exponential',
-            stops: [
-              [1, 0],
-              [62, 1]
-            ]
-          },
-          // increase intensity as zoom level increases
-          'heatmap-intensity': {
-            stops: [
-              [11, 1],
-              [15, 3]
-            ]
-          },
-          // assign color values be applied to points depending on their density
-          'heatmap-color': [
-            'interpolate',
-            ['linear'],
-            ['heatmap-density'],
-            0, 'rgba(0,0,256,0)',
-            0.2, 'rgba(0,0,256,0.2)',
-            0.4, 'rgba(0,256,0,0.4)',
-            0.6, 'rgba(256,256,0,0.4)',
-            0.8, 'rgba(256,0,0,0.4)'
-          ],
-          // increase radius as zoom increases
-          'heatmap-radius': {
-            stops: [
-              [11, 15],
-              [15, 20]
-            ]
-          },
-          // decrease opacity to transition into the circle layer
-          'heatmap-opacity': {
-            default: 1,
-            stops: [
-              [14, 1],
-              [15, 0]
-            ]
-          },
-        }
-      });
     map.on('mouseover', 'site assessments', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
@@ -251,7 +283,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'violence','site assessments', 'clinics','vaccinations'];
+var toggleableLayerIds = [ 'violence','site assessments', 'clinics','vaccinations','Population'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
