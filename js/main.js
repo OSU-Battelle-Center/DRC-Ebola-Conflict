@@ -16,7 +16,6 @@ var months = [
 ];
 
 function filterBy(month) {
- 
   var filters = ['==', 'month', month];
   map.setFilter('violence', filters);
 
