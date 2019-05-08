@@ -189,6 +189,22 @@ map.on('load', function() {
             'circle-color': '#ffff11'
             }
     });
+    map.on('mouseover', 'Refugees', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+            "<h2>"+e.features[0].properties["Site"]+"</h2>"+
+            "<b>Date:</b> "+e.features[0].properties["Date"]+"<br>"+
+            "<b>City:</b> "+e.features[0].properties["City"]+"<br>"+
+            "<b>Place:</b> "+e.features[0].properties["Place"]
+        )
+        //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
     map.addSource('Points of Entry', {
         type: 'geojson',
         data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/POE-working-list.geojson'
@@ -200,13 +216,29 @@ map.on('load', function() {
         'paint': {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
-                'base': 10,
+                'base': 5,
                 'stops': [[12, 5], [22, 10]]
                 },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#00aaff'
+            'circle-color': '#22ddff',
+            'circle-stroke-color': '#0033dd',
+            'circle-stroke-width':3
             }
+    });
+    map.on('mouseover', 'Points of Entry', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+            "<h2>POE: "+e.features[0].properties["Name"]+"</h2>"+
+            "<b>Type:</b> "+e.features[0].properties["Type"]
+        )
+        //.setHTML(e.features[0].properties.description)
+            .addTo(map);
     });
     map.addSource('Vaccinations', {
         type: 'geojson',
@@ -219,9 +251,17 @@ map.on('load', function() {
         'paint': {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
-                'base': 5,
-                'stops': [[12, 4], [22, 10]]
-                },
+                property: 'Vaccinations',
+                stops: [
+                [{zoom: 8, value: 0}, 0],
+                [{zoom: 8, value: 100}, 24],
+                [{zoom: 11, value: 0}, 0],
+                [{zoom: 11, value: 100}, 24],
+                [{zoom: 16, value: 0}, 0],
+                [{zoom: 16, value: 100}, 40]
+                ]
+               },
+                //parseInt(
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
             'circle-color': '#00ff00'
@@ -240,22 +280,6 @@ map.on('load', function() {
                 "<b>Vaccinations:</b> "+e.features[0].properties["Vaccinations"]
             )
             //.setHTML(e.features[0].properties.description)
-            .addTo(map);
-    });
-    map.on('mouseover', 'Refugees', function(e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(
-            "<h2>"+e.features[0].properties["Site"]+"</h2>"+
-            "<b>Date:</b> "+e.features[0].properties["Date"]+"<br>"+
-            "<b>City:</b> "+e.features[0].properties["City"]+"<br>"+
-            "<b>Place:</b> "+e.features[0].properties["Place"]
-        )
-        //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
     map.addSource('Health Clinics', {
