@@ -28,12 +28,28 @@ var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/osu-battelle-center/cjvekpli50e0o1fphpmv2x5wc',
     center: [26,-0],
-    zoom: 6.9
+    zoom: 6
 });
 
 var icon = "circle";
 
 map.on('load', function() {
+    var layers = ['Violence', 'Refugees', 'Health Clinics', 'Vaccinations', 'Points of Entry'];
+    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#00FF00', '#22ddff'];
+    for (i = 0; i < layers.length; i++) {
+        var layer = layers[i];
+        var color = colors[i];
+        var item = document.createElement('div');
+        var key = document.createElement('span');
+        key.className = 'legend-key';
+        key.style.backgroundColor = color;
+      
+        var value = document.createElement('span');
+        value.innerHTML = layer;
+        item.appendChild(key);
+        item.appendChild(value);
+        legend.appendChild(item);
+      }
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
@@ -116,8 +132,8 @@ map.on('load', function() {
         "line-cap": "round"
         },
         "paint": {
-        "line-color": "#888",
-        "line-width": 8
+        "line-color": "#bbb",
+        "line-width": 4
         }
         });
     
@@ -145,7 +161,9 @@ map.on('load', function() {
                     'base': 10,
                     'stops': [[12, 5], [22, 10]]
                 },
-                'circle-color': '#ff1111'
+                'circle-color': '#ff1111',
+                'circle-stroke-color': '#770000',
+                'circle-stroke-width':1
             }
         });
     // Create a popup, but don't add it to the map yet.
@@ -186,7 +204,9 @@ map.on('load', function() {
                 },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#ffff11'
+            'circle-color': '#ffff11',
+            'circle-stroke-color': '#555500',
+            'circle-stroke-width':1
             }
     });
     map.on('mouseover', 'Refugees', function(e) {
@@ -223,7 +243,7 @@ map.on('load', function() {
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
             'circle-color': '#22ddff',
             'circle-stroke-color': '#0033dd',
-            'circle-stroke-width':3
+            'circle-stroke-width':1
             }
     });
     map.on('mouseover', 'Points of Entry', function(e) {
@@ -264,7 +284,9 @@ map.on('load', function() {
                 //parseInt(
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#00ff00'
+            'circle-color': '#00ff00',
+            'circle-stroke-color': '#003300',
+            'circle-stroke-width':1
             }
     });
     map.on('mouseover', 'Vaccinations', function(e) {
@@ -298,7 +320,9 @@ map.on('load', function() {
             },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#ffffff'
+            'circle-color': '#ffffff',
+            'circle-stroke-color': '#555555',
+            'circle-stroke-width':1
         }
     });
     map.on('mouseover', 'Health Clinics', function(e) {
@@ -326,7 +350,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'Violence','Population','Refugees', 'Health Clinics','Vaccinations','Points of Entry'];
+var toggleableLayerIds = [ 'Population','Violence','Refugees', 'Health Clinics','Vaccinations','Points of Entry'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];

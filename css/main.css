@@ -1,10 +1,26 @@
 body { margin:0; padding:0; }
+h2,
+h3 {
+  margin: 10px;
+  font-size: 1.2em;
+}
+
+h3 {
+  font-size: 1em;
+}
+
+p {
+  font-size: 0.85em;
+  margin: 10px;
+  text-align: left;
+}
+
 #map { position:absolute; top:0; bottom:0; width:100%; }
 #menu {
   background: #fff;
   position: absolute;
   z-index: 1;
-  top:100px;
+  top:50px;
   left: 10px;
   border-radius: 3px;
   width: 250px;
@@ -43,11 +59,25 @@ body { margin:0; padding:0; }
   font: 20px/35px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
   width: 25%;
-  top: 100px;
+  top: 50px;
   left: 300px;
   padding: 0px;
+  border-radius: 3px;
+}
+#features {
+  top: 0;
+  height: 100px;
+  margin-top: 20px;
+  width: 250px;
 }
 
+.legend-key {
+  display: inline-block;
+  border-radius: 20%;
+  width: 10px;
+  height: 10px;
+  margin-right: 5px;
+}
 .map-overlay .map-overlay-inner {
   background-color: #777;
   box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
