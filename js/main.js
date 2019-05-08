@@ -189,6 +189,25 @@ map.on('load', function() {
             'circle-color': '#ffff11'
             }
     });
+    map.addSource('Points of Entry', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/POE-working-list.geojson'
+    });
+    map.addLayer({
+        'id': 'Points of Entry',
+        'type': 'circle',
+        'source': 'Points of Entry',
+        'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+                'base': 10,
+                'stops': [[12, 5], [22, 10]]
+                },
+            // color circles by ethnicity, using a match expression
+            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': '#00aaff'
+            }
+    });
     map.addSource('Vaccinations', {
         type: 'geojson',
         data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
@@ -284,7 +303,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'Violence','Population','Refugees', 'Health Clinics','Vaccinations'];
+var toggleableLayerIds = [ 'Violence','Population','Refugees', 'Health Clinics','Vaccinations','Points of Entry'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];

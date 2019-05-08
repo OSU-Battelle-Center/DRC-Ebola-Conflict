@@ -1,0 +1,610 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.736427,1.239517 ]
+    },
+    "properties": {
+    "Name":"Nsonga",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.519666,1.030315 ]
+    },
+    "properties": {
+    "Name":"Canara",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.971103,0.724517 ]
+    },
+    "properties": {
+    "Name":"Butogo",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.958005,0.631068 ]
+    },
+    "properties": {
+    "Name":"Kamango/Busunga",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.720464,0.042014 ]
+    },
+    "properties": {
+    "Name":"Kasindi/Mpondwe",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.598652,-1.294975 ]
+    },
+    "properties": {
+    "Name":"Bunagana/Kisoro",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 31.0263889,2.387222 ]
+    },
+    "properties": {
+    "Name":"Goli",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.631111,0.725556 ]
+    },
+    "properties": {
+    "Name":"Ishasha",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.9875,2.4166667 ]
+    },
+    "properties": {
+    "Name":"Paidha",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.879444,2.8863889 ]
+    },
+    "properties": {
+    "Name":"Vurra",
+    "Type":"Ugandan Border Crossings"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.475,0.508333 ]
+    },
+    "properties": {
+    "Name":"Wageni",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.47388,0.575 ]
+    },
+    "properties": {
+    "Name":"Beni",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.23833,1.670855 ]
+    },
+    "properties": {
+    "Name":"Goma",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.62444,0.741389 ]
+    },
+    "properties": {
+    "Name":"Ishasha",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.375,1.325 ]
+    },
+    "properties": {
+    "Name":"Katale",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.241667,0.13888 ]
+    },
+    "properties": {
+    "Name":"Lubero",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.429722,1.1625 ]
+    },
+    "properties": {
+    "Name":"Rutshuru",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.290278,0.795833 ]
+    },
+    "properties": {
+    "Name":"Rwindi",
+    "Type":"Airport"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.25,1.5667 ]
+    },
+    "properties": {
+    "Name":"Port of Bunia",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.294035,0.144233 ]
+    },
+    "properties": {
+    "Name":"Mutsanga",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.173851,-0.689088 ]
+    },
+    "properties": {
+    "Name":"Kanyabayonga",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.5230015,0.0288167 ]
+    },
+    "properties": {
+    "Name":"Karuruma",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.5527929,-0.1516443 ]
+    },
+    "properties": {
+    "Name":"Kyavinyonge",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.3486374,0.0805351 ]
+    },
+    "properties": {
+    "Name":"Cugeki/Kugheki",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2582865,0.8529923 ]
+    },
+    "properties": {
+    "Name":"Biakato",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.1996868,1.501687 ]
+    },
+    "properties": {
+    "Name":"Lengabo",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.4073826,0.5028549 ]
+    },
+    "properties": {
+    "Name":"Pasisi",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.9634509,1.1039561 ]
+    },
+    "properties": {
+    "Name":"Kituku",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2866824,0.1694219 ]
+    },
+    "properties": {
+    "Name":"Vulindi",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.4855928,0.5861222 ]
+    },
+    "properties": {
+    "Name":"Mavivi",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.3355325,0.1229649 ]
+    },
+    "properties": {
+    "Name":"Kyaghala",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2919545,0.1249694 ]
+    },
+    "properties": {
+    "Name":"Butembo",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.24528,-1.69645 ]
+    },
+    "properties": {
+    "Name":"Petite Barrier (Goma)",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2454,-1.6816 ]
+    },
+    "properties": {
+    "Name":"Grande Barrier (Goma)",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.4297965,0.45272828 ]
+    },
+    "properties": {
+    "Name":"Mukulya/Mukulia",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.69288,0.32609 ]
+    },
+    "properties": {
+    "Name":"Bulongo",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2871668,0.614202 ]
+    },
+    "properties": {
+    "Name":"Makeke",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.4312218,-1.157667 ]
+    },
+    "properties": {
+    "Name":"Kiwanja",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.595278,-1.313035 ]
+    },
+    "properties": {
+    "Name":"Bunagana",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.6278,-0.9003 ]
+    },
+    "properties": {
+    "Name":"Munyaga",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.824167,2.8594439 ]
+    },
+    "properties": {
+    "Name":"Aru",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.9917354,2.3003475 ]
+    },
+    "properties": {
+    "Name":"Mahagi",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.4599,0.50365 ]
+    },
+    "properties": {
+    "Name":"Tamande",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.2679637,1.5225654 ]
+    },
+    "properties": {
+    "Name":"Dele",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.2484356,1.5871441 ]
+    },
+    "properties": {
+    "Name":"Mudzipela",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.0710607,-1.5759313 ]
+    },
+    "properties": {
+    "Name":"Mubambiro",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 28.8594885,-2.5055839 ]
+    },
+    "properties": {
+    "Name":"Bukavu",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.2385988,-0.1586686 ]
+    },
+    "properties": {
+    "Name":"Lubero",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.0123,1.4532 ]
+    },
+    "properties": {
+    "Name":"Loya",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.0648889,0.2736111 ]
+    },
+    "properties": {
+    "Name":"Mambasa",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 15.3714,-0.000996016 ]
+    },
+    "properties": {
+    "Name":"N'djili ",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.3073265,0.6038107 ]
+    },
+    "properties": {
+    "Name":"Mangina",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 15.3125974,-4.3217055 ]
+    },
+    "properties": {
+    "Name":"Kinshasa",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.5172722,0.6967778 ]
+    },
+    "properties": {
+    "Name":"Oicha",
+    "Type":"Sit. Rep. POEs"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.25192,0.02653 ]
+    },
+    "properties": {
+    "Name":"Musienene",
+    "Type":"Sit. Rep. POEs"
+    }
+  }
+]
+}
