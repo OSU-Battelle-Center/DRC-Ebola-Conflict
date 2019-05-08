@@ -4,22 +4,21 @@ body { margin:0; padding:0; }
   background: #fff;
   position: absolute;
   z-index: 1;
-  top: 10px;
-  right: 10px;
+  top:100px;
+  left: 10px;
   border-radius: 3px;
-  width: 120px;
-  border: 1px solid rgba(0,0,0,0.4);
+  width: 250px;
   font-family: 'Open Sans', sans-serif;
 }
 #menu a {
-  font-size: 13px;
-  color: #404040;
+  font-size: 30px;
+  color: #777;
   display: block;
-  margin: 0;
-  padding: 0;
+  margin: 10px;
   padding: 10px;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
+  border-radius: 3px;
   text-align: center;
 }
 
@@ -29,11 +28,11 @@ body { margin:0; padding:0; }
 
 #menu a:hover {
   background-color: #f8f8f8;
-  color: #404040;
+  color: #777;
 }
 
 #menu a.active {
-  background-color: #3887be;
+  background-color: #777;
   color: #ffffff;
 }
 
@@ -41,12 +40,12 @@ body { margin:0; padding:0; }
   background: #3074a4;
 }
 .map-overlay {
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 20px/35px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
   width: 25%;
-  top: 0;
-  left: 0;
-  padding: 10px;
+  top: 100px;
+  left: 300px;
+  padding: 0px;
 }
 
 .map-overlay .map-overlay-inner {
@@ -66,7 +65,7 @@ body { margin:0; padding:0; }
 .map-overlay .legend .bar {
   height: 10px;
   width: 100%;
-  background: linear-gradient(to right, rgb(141, 171, 255), rgb(40, 212, 255), rgb(0, 255,0), rgb(255, 255,0), rgb(255, 0, 0));
+  background: linear-gradient(to right, rgb(141, 171, 255), rgb(40, 212, 255), rgb(0, 255,0), rgb(255, 255,0), rgb(255, 200, 0));
 }
 
 .map-overlay input {
@@ -79,7 +78,7 @@ body { margin:0; padding:0; }
 }
 .mapboxgl-popup {
   max-width: 400px;
-  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 20px/35px 'Helvetica Neue', Arial, Helvetica, sans-serif,bold;
 }
 .mapboxgl-popup-content {
   background: #f5c0c0;

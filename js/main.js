@@ -18,7 +18,7 @@ var months = [
 function filterBy(month) {
 
   var filters = ['==', 'month', month];
-  map.setFilter('violence', filters);
+  map.setFilter('Violence', filters);
 
   // Set the label to the month
   document.getElementById('month').textContent = months[month];
@@ -26,9 +26,9 @@ function filterBy(month) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/osu-battelle-center/cjvefnopv76ve1gmpwufy4pio',
-    center: [28,-0],
-    zoom: 6.8
+    style: 'mapbox://styles/osu-battelle-center/cjvekpli50e0o1fphpmv2x5wc',
+    center: [26,-0],
+    zoom: 6.9
 });
 
 var icon = "circle";
@@ -71,7 +71,7 @@ map.on('load', function() {
             0.3, 'rgba(0,255,255,1)',
             0.5, 'rgba(0,255,0,1)',
             0.7, 'rgba(255,255,0,1)',
-            1, 'rgba(255,0,0,1)'
+            1, 'rgba(255,200,0,1)'
           ],
           // increase radius as zoom increases
           'heatmap-radius': {
@@ -131,21 +131,21 @@ map.on('load', function() {
         return d;
         });
 
-    map.addSource('violence', {
+    map.addSource('Violence', {
         'type': 'geojson',
         data: data
         });
 
     map.addLayer({
-        "id": "violence",
+        "id": "Violence",
         "type": "circle",
-        "source": "violence",
+        "source": "Violence",
         "paint": {
                 'circle-radius': {
                     'base': 10,
-                    'stops': [[12, 3], [22, 10]]
+                    'stops': [[12, 5], [22, 10]]
                 },
-                'circle-color': '#880000'
+                'circle-color': '#ff1111'
             }
         });
     // Create a popup, but don't add it to the map yet.
@@ -153,7 +153,7 @@ map.on('load', function() {
         closeButton: true,
         closeOnClick: true
     });
-    map.on('mouseover', 'violence', function(e) {
+    map.on('mouseover', 'Violence', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -169,33 +169,34 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.addSource('site assessments', {
+    map.addSource('Refugees', {
         type: 'geojson',
         data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/site_assessment_30.geojson'
     });
     map.addLayer({
-        'id': 'site assessments',
+        'id': 'Refugees',
         'type': 'circle',
-        'source': 'site assessments',
+        'source': 'Refugees',
         'paint': {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
-                'base': 5,
-                'stops': [[12, 4], [22, 10]]
+                'base': 10,
+                'stops': [[12, 5], [22, 10]]
+                //parseInt('e.features[0].properties["Vaccinations"]')
                 },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#ff0f0f'
+            'circle-color': '#ffff11'
             }
     });
-    map.addSource('vaccinations', {
+    map.addSource('Vaccinations', {
         type: 'geojson',
         data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
     });
     map.addLayer({
-        'id': 'vaccinations',
+        'id': 'Vaccinations',
         'type': 'circle',
-        'source': 'vaccinations',
+        'source': 'Vaccinations',
         'paint': {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
@@ -204,10 +205,10 @@ map.on('load', function() {
                 },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#00aa00'
+            'circle-color': '#00ff00'
             }
     });
-    map.on('mouseover', 'vaccinations', function(e) {
+    map.on('mouseover', 'Vaccinations', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -222,7 +223,7 @@ map.on('load', function() {
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.on('mouseover', 'site assessments', function(e) {
+    map.on('mouseover', 'Refugees', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -238,14 +239,14 @@ map.on('load', function() {
         //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.addSource('clinics', {
+    map.addSource('Health Clinics', {
         type: 'geojson',
         data: 'https://data.humdata.org/dataset/104bfeb2-f102-4770-90a7-fc8372b488f0/resource/eea74020-28b0-460f-95aa-450d70bb3d85/download/democratic-republic-of-the-congo.geojson'
     });
     map.addLayer({
-        'id': 'clinics',
+        'id': 'Health Clinics',
         'type': 'circle',
-        'source': 'clinics',
+        'source': 'Health Clinics',
         'paint': {
         // make circles larger as the user zooms from z12 to z22
             'circle-radius': {
@@ -254,10 +255,10 @@ map.on('load', function() {
             },
             // color circles by ethnicity, using a match expression
             // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#ff05c5'
+            'circle-color': '#ffffff'
         }
     });
-    map.on('mouseover', 'clinics', function(e) {
+    map.on('mouseover', 'Health Clinics', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -283,7 +284,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'violence','site assessments', 'clinics','vaccinations','Population'];
+var toggleableLayerIds = [ 'Violence','Population','Refugees', 'Health Clinics','Vaccinations'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
