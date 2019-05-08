@@ -20,20 +20,20 @@ p {
   background: #fff;
   position: absolute;
   z-index: 1;
-  top:50px;
+  top:200px;
   left: 10px;
   border-radius: 3px;
-  width: 250px;
-  font-family: 'Open Sans', sans-serif;
+  width: 10%;
+  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 #menu a {
-  font-size: 30px;
+  font-size: 20px;
   color: #777;
   display: block;
   margin: 0px;
-  border-color: #999;
-  outline-color: #999;
-  -webkit-border-before-color: #888;
+  border-color: #777;
+  outline-color: #777;
+  -webkit-border-before-color: #777;
   padding: 10px;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
@@ -61,11 +61,11 @@ p {
   background: #3074a4;
 }
 .map-overlay {
-  font: 20px/35px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 15px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
-  width: 25%;
-  top: 50px;
-  left: 300px;
+  width: 10%;
+  bottom: 25px;
+  left: 10px;
   padding: 0px;
   border-radius: 3px;
 }
