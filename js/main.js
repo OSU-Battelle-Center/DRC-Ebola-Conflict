@@ -75,7 +75,7 @@ map.on('load', function() {
         popup.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(
                 "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
-                "<b>Date:</b> "+e.features[0].properties["start_date_time/date"]+"<br>"+
+                "<b>Date:</b> "+e.features[0].properties["time"]+"<br>"+
                 "<b>Severity:</b> "+e.features[0].properties["severity_rating"]+"<br>"+
                 "<b>Details:</b> "+e.features[0].properties["title/0/en"]
             )
@@ -101,6 +101,95 @@ map.on('load', function() {
             'circle-color': '#ff0f0f'
             }
     });
+    map.addSource('vaccinations', {
+        type: 'geojson',
+        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
+    });
+    map.addLayer({
+        'id': 'vaccinations',
+        'type': 'circle',
+        'source': 'vaccinations',
+        'paint': {
+            // make circles larger as the user zooms from z12 to z22
+            'circle-radius': {
+                'base': 5,
+                'stops': [[12, 4], [22, 10]]
+                },
+            // color circles by ethnicity, using a match expression
+            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
+            'circle-color': '#00aa00'
+            }
+    });
+    map.on('mouseover', 'vaccinations', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["City"]+"</h2>"+
+                "<b>Date Modified:</b> "+e.features[0].properties["Date Updated"]+"<br>"+
+                "<b>Vaccinations:</b> "+e.features[0].properties["Vaccinations"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
+    map.addSource('pop', {
+        type: 'vector',
+        url: 'mapbox://osu-battelle-center.347zqs23'
+    });
+    map.addLayer({
+        id: 'pop-dens',
+        type: 'heatmap',
+        source: 'pop',
+        maxzoom: 22,
+        'source-layer': 'populations-2dl34g',
+        paint: {
+          // increase weight as diameter breast height increases
+          'heatmap-weight': {
+            property: 'Population',
+            type: 'exponential',
+            stops: [
+              [1, 0],
+              [62, 1]
+            ]
+          },
+          // increase intensity as zoom level increases
+          'heatmap-intensity': {
+            stops: [
+              [11, 1],
+              [15, 3]
+            ]
+          },
+          // assign color values be applied to points depending on their density
+          'heatmap-color': [
+            'interpolate',
+            ['linear'],
+            ['heatmap-density'],
+            0, 'rgba(0,0,256,0)',
+            0.2, 'rgba(0,0,256,0.2)',
+            0.4, 'rgba(0,256,0,0.4)',
+            0.6, 'rgba(256,256,0,0.4)',
+            0.8, 'rgba(256,0,0,0.4)'
+          ],
+          // increase radius as zoom increases
+          'heatmap-radius': {
+            stops: [
+              [11, 15],
+              [15, 20]
+            ]
+          },
+          // decrease opacity to transition into the circle layer
+          'heatmap-opacity': {
+            default: 1,
+            stops: [
+              [14, 1],
+              [15, 0]
+            ]
+          },
+        }
+      });
     map.on('mouseover', 'site assessments', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
@@ -162,7 +251,7 @@ map.on('load', function() {
   });
 });
 
-var toggleableLayerIds = [ 'violence','site assessments', 'clinics'];
+var toggleableLayerIds = [ 'violence','site assessments', 'clinics','vaccinations'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
