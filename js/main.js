@@ -38,7 +38,7 @@ function filterBy(month) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/osu-battelle-center/cjvekpli50e0o1fphpmv2x5wc',
+    style: 'mapbox://styles/osu-battelle-center/cjvfjckvvhg261fnv9juuuj6m',
     center: [26,-0],
     zoom: 6
 });
@@ -62,6 +62,7 @@ map.on('load', function() {
         item.appendChild(value);
         legend.appendChild(item);
       }
+      
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
@@ -118,25 +119,35 @@ map.on('load', function() {
           },
         }
       });
+      map.addLayer({
+        'id': 'area of interest',
+        'type': 'inverted-fill',
+        'source': 'aoi',
+        'layout': {},
+        'paint': {
+            'fill-pattern': 'hatch',
+            'fill-opacity': 0.8
+        }
+    });
     map.addLayer({
         "id": "route",
         "type": "line",
         "source": {
         "type": "geojson",
         "data": {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-        "type": "LineString",
-        "coordinates": [
-            [26,-3],
-            [26,3],
-            [31,3],
-            [31,-3],
-            [26,-3]
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+                "type": "LineString",
+                "coordinates": [
+                    [26,-3],
+                    [26,3],
+                    [31,3],
+                    [31,-3],
+                    [26,-3]
 
-        ]
-        }
+                ]
+            }
         }
         },
         "layout": {
@@ -149,7 +160,8 @@ map.on('load', function() {
         }
         });
     
-  d3.json('https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/kivu_security.geojson', function(err, data) {
+        //d3.json('https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/kivu_security.geojson', function(err, data) {
+d3.json('Data/kivu_security.geojson', function(err, data) {
     if (err) throw err;
 
     // Create a month property value based on time
@@ -205,7 +217,8 @@ map.on('load', function() {
     });
     map.addSource('Refugees', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/site_assessment_30.geojson'
+        //data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/site_assessment_30.geojson'
+        data: 'Data/site_assessment_30.geojson'
     });
     map.addLayer({
         'id': 'Refugees',
@@ -243,7 +256,8 @@ map.on('load', function() {
     });
     map.addSource('Points of Entry', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/POE-working-list.geojson'
+        //data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/POE-working-list.geojson'
+        data: 'Data/POE-working-list.geojson'
     });
     map.addLayer({
         'id': 'Points of Entry',
@@ -278,7 +292,8 @@ map.on('load', function() {
     });
     map.addSource('Vaccinations', {
         type: 'geojson',
-        data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
+        //data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
+        data: 'Data/vaccinations.geojson'
     });
     map.addLayer({
         'id': 'Vaccinations',
@@ -322,7 +337,8 @@ map.on('load', function() {
     });
     map.addSource('Health Clinics', {
         type: 'geojson',
-        data: 'https://data.humdata.org/dataset/104bfeb2-f102-4770-90a7-fc8372b488f0/resource/eea74020-28b0-460f-95aa-450d70bb3d85/download/democratic-republic-of-the-congo.geojson'
+        //data: 'https://data.humdata.org/dataset/104bfeb2-f102-4770-90a7-fc8372b488f0/resource/eea74020-28b0-460f-95aa-450d70bb3d85/download/democratic-republic-of-the-congo.geojson'
+        data: 'Data/drc-healthsites.geojson'
     });
     map.addLayer({
         'id': 'Health Clinics',
