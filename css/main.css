@@ -17,23 +17,22 @@ p {
 
 #map { position:absolute; top:0; bottom:0; width:100%; }
 #menu {
-  background: #fff;
+  background: rgba(200, 200, 200, 0.5);
   position: absolute;
   z-index: 1;
   top:200px;
   left: 10px;
   border-radius: 3px;
-  width: 10%;
+  width: 200px;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 #menu a {
   font-size: 20px;
-  color: #777;
   display: block;
   margin: 0px;
-  border-color: #777;
-  outline-color: #777;
-  -webkit-border-before-color: #777;
+  border-color: rgba(200, 200, 200, 0.8);
+  outline-color: rgba(200, 200, 200, 0.8);
+  -webkit-border-before-color: rgba(200, 200, 200, 0.8);;
   padding: 10px;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
@@ -48,13 +47,11 @@ p {
 }
 
 #menu a:hover {
-  background-color: #f8f8f8;
-  color: #777;
+  color: rgba(200, 200, 200, 0.8);
 }
 
 #menu a.active {
-  background-color: #777;
-  color: #ffffff;
+  background-color: rgba(200, 200, 200, 0.5);
 }
 
 #menu a.active:hover {
@@ -63,7 +60,7 @@ p {
 .map-overlay {
   font: 15px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
-  width: 10%;
+  width: 200px;
   bottom: 25px;
   left: 10px;
   padding: 0px;
@@ -83,8 +80,10 @@ p {
   height: 10px;
   margin-right: 5px;
 }
+/**Bottom two legend boxes
+*/
 .map-overlay .map-overlay-inner {
-  background-color: #777;
+  background-color: rgba(200, 200, 200, 0.8);
   box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
   border-radius: 3px;
   padding: 10px;
