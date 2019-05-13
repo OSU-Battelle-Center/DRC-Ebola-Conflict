@@ -63,14 +63,25 @@ p {
   width: 200px;
   bottom: 25px;
   left: 10px;
+  padding: 10px;
+  border-radius: 3px;
+}
+.intro-header {
+  font: 20px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  position: absolute;
+  background-color: rgba(200, 200, 200, 0.8);
+  width: 400px;
+  height: 200px;
+  bottom: 25px;
+  left: 10px;
   padding: 0px;
   border-radius: 3px;
 }
 #features {
   top: 0;
-  height: 100px;
+  height: 120px;
   margin-top: 20px;
-  width: 250px;
+  width: 400px;
 }
 
 .legend-key {
