@@ -71,7 +71,11 @@ p {
   position: absolute;
   background-color: rgba(200, 200, 200, 0.8);
   width: 575px;
+<<<<<<< HEAD
   height: 200px;
+=======
+  height: 300px;
+>>>>>>> 3992c5a1401b7ed7c3f4e09b3d12638662730322
   bottom: 25px;
   left: 10px;
   padding: 0px;
@@ -79,7 +83,11 @@ p {
 }
 #features {
   top: 0;
+<<<<<<< HEAD
   height: 200px;
+=======
+  height: 300px;
+>>>>>>> 3992c5a1401b7ed7c3f4e09b3d12638662730322
   margin-top: 20px;
   width: 575px;
 }
