@@ -71,7 +71,7 @@ p {
   position: absolute;
   background-color: rgba(200, 200, 200, 0.8);
   width: 575px;
-  height: 220px;
+  height: 300px;
   bottom: 25px;
   left: 10px;
   padding: 0px;
@@ -79,7 +79,7 @@ p {
 }
 #features {
   top: 0;
-  height: 220px;
+  height: 300px;
   margin-top: 20px;
   width: 575px;
 }
