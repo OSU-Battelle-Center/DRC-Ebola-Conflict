@@ -67,15 +67,11 @@ p {
   border-radius: 3px;
 }
 .intro-header {
-  font: 20px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 18px/28px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
   background-color: rgba(200, 200, 200, 0.8);
-  width: 575px;
-<<<<<<< HEAD
-  height: 200px;
-=======
-  height: 300px;
->>>>>>> 3992c5a1401b7ed7c3f4e09b3d12638662730322
+  width: 600px;
+  height: 140px;
   bottom: 25px;
   left: 10px;
   padding: 0px;
@@ -83,13 +79,9 @@ p {
 }
 #features {
   top: 0;
-<<<<<<< HEAD
-  height: 200px;
-=======
-  height: 300px;
->>>>>>> 3992c5a1401b7ed7c3f4e09b3d12638662730322
+  height: 140px;
   margin-top: 20px;
-  width: 575px;
+  width: 600px;
 }
 
 .legend-key {
