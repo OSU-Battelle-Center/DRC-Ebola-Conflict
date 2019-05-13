@@ -70,8 +70,8 @@ p {
   font: 20px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
   background-color: rgba(200, 200, 200, 0.8);
-  width: 600px;
-  height: 200px;
+  width: 575px;
+  height: 220px;
   bottom: 25px;
   left: 10px;
   padding: 0px;
@@ -79,7 +79,7 @@ p {
 }
 #features {
   top: 0;
-  height: 120px;
+  height: 220px;
   margin-top: 20px;
   width: 575px;
 }
