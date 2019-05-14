@@ -97,18 +97,18 @@ p {
   background-color: rgba(200, 200, 200, 0.8);
   box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
   border-radius: 3px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 5px;
+  margin-bottom: 5px;
 }
 
 .map-overlay h2 {
-  line-height: 24px;
+  line-height: 18px;
   display: block;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 
 .map-overlay .legend .bar {
-  height: 10px;
+  height: 8px;
   width: 100%;
   background: linear-gradient(to right, rgb(141, 171, 255), rgb(40, 212, 255), rgb(0, 255,0), rgb(255, 255,0), rgb(255, 200, 0));
 }
