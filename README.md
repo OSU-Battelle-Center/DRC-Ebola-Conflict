@@ -12,6 +12,9 @@ Open `index.html` file in Web Browser (Google Chrome or Firefox preferred)
 Step-by-step instructions:
 
 Go to the DRC-Ebola-Conflict Repository
+
 Click the green Clone or download button then select Download Zip
+
 Uncompress the Zip file on your desktop
+
 Open the index.html file in your Web Browser (Google Chrome or Firefox preferred)
