@@ -63,14 +63,14 @@ map.on('load', function() {
         legend.appendChild(item);
       };
 
-      map.addSource('cases', {
+      map.addSource('Total confirmed cases', {
           type: 'vector',
           url: 'mapbox://osu-battelle-center.07c3yg77'
       });
       map.addLayer({
-        id: 'cases',
+        id: 'Total confirmed cases',
         type: 'fill',
-        source: 'cases',
+        source: 'Total confirmed cases',
         'source-layer': 'Archive-0p3pwf',
         filter: [
             "match",
@@ -100,7 +100,7 @@ map.on('load', function() {
             "fill-opacity": 0.25
         }
     });
-    map.on('mouseover', 'cases', function(e) {
+    map.on('mouseover', 'Total confirmed cases', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
 
@@ -109,7 +109,7 @@ map.on('load', function() {
         popup.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(
                 "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
-                "<b>Confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
+                "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
                 "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"]
             )
             //.setHTML(e.features[0].properties.description)
@@ -434,7 +434,7 @@ d3.json('Data/kivu_security.geojson', function(err, data) {
   });
 });
 
-var toggleableLayerIds = [ 'Population','Violence','Refugees', 'Health Clinics','Vaccinations','Points of Entry'];
+var toggleableLayerIds = [ 'Population','Violence','Refugees', 'Health Clinics','Vaccinations','Points of Entry', 'Total confirmed cases'];
 
 for (var i = 0; i < toggleableLayerIds.length; i++) {
     var id = toggleableLayerIds[i];
