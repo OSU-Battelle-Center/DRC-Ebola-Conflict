@@ -55,14 +55,51 @@ map.on('load', function() {
         var key = document.createElement('span');
         key.className = 'legend-key';
         key.style.backgroundColor = color;
-      
+
         var value = document.createElement('span');
         value.innerHTML = layer;
         item.appendChild(key);
         item.appendChild(value);
         legend.appendChild(item);
-      }
-      
+      };
+
+      map.addSource('cases', {
+          type: 'vector',
+          url: 'mapbox://osu-battelle-center.07c3yg77'
+      });
+      map.addLayer({
+        id: 'cases',
+        type: 'fill',
+        source: 'cases',
+        'source-layer': 'Archive-0p3pwf',
+        filter: [
+            "match",
+            ["get", "ADM1_NAME"],
+            ["ITURI", "NORD KIVU"],
+            true,
+            false
+        ],
+        layout: {},
+        paint: {
+            "fill-color": [
+                "interpolate",
+                ["linear"],
+                ["get", "case_dat_5"],
+                0,
+                "hsl(0, 100%, 52%)",
+                245.5,
+                [
+                    "case",
+                    ["has", "case_dat_5"],
+                    "hsl(0, 100%, 51%)",
+                    "hsl(0, 100%, 51%)"
+                ],
+                491,
+                "hsl(0, 100%, 51%)"
+            ],
+            "fill-opacity": 0.25
+        }
+    });
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
@@ -159,7 +196,7 @@ map.on('load', function() {
         "line-width": 4
         }
         });
-    
+
         //d3.json('https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/kivu_security.geojson', function(err, data) {
 d3.json('Data/kivu_security.geojson', function(err, data) {
     if (err) throw err;
