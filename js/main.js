@@ -109,7 +109,8 @@ map.on('load', function() {
         popup.setLngLat(e.features[0].geometry.coordinates)
             .setHTML(
                 "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
-                "<b>Confirmed cases:</b> "+e.features[0].properties["case_dat_5"]
+                "<b>Confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
+                "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"]
             )
             //.setHTML(e.features[0].properties.description)
             .addTo(map);
