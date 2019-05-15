@@ -1,0 +1,269 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.379952,0.118307 ]
+    },
+    "properties": {
+    "City":"Katwa",
+    "Vaccinations":23206,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.460181,0.492144 ]
+    },
+    "properties": {
+    "City":"Beni",
+    "Vaccinations":21270,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.281821,0.139518 ]
+    },
+    "properties": {
+    "City":"Butembo",
+    "Vaccinations":11372,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.182697,-1.651211 ]
+    },
+    "properties": {
+    "City":"Goma",
+    "Vaccinations":2970,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.528762,0.692463 ]
+    },
+    "properties": {
+    "City":"Oicha",
+    "Vaccinations":2333,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.779129,1.342009 ]
+    },
+    "properties": {
+    "City":"Komanda",
+    "Vaccinations":2317,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.316738,-0.137286 ]
+    },
+    "properties": {
+    "City":"Masereka",
+    "Vaccinations":1629,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.256323,1.580323 ]
+    },
+    "properties": {
+    "City":"Bunia",
+    "Vaccinations":1466,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.409242,0.010686 ]
+    },
+    "properties": {
+    "City":"Kyondo",
+    "Vaccinations":1413,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.182697,-1.651211 ]
+    },
+    "properties": {
+    "City":"Karisimbi",
+    "Vaccinations":1357,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.259298,-0.153078 ]
+    },
+    "properties": {
+    "City":"Lubero",
+    "Vaccinations":1199,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 15.337883,-4.38452 ]
+    },
+    "properties": {
+    "City":"Biena",
+    "Vaccinations":1025,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.26612,0.021758 ]
+    },
+    "properties": {
+    "City":"Musienene",
+    "Vaccinations":936,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.747457,0.338428 ]
+    },
+    "properties": {
+    "City":"Mutwanga",
+    "Vaccinations":772,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.453488,-1.180946 ]
+    },
+    "properties": {
+    "City":"Rutshuru",
+    "Vaccinations":690,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 30.546081,-0.735392 ]
+    },
+    "properties": {
+    "City":"Rwampara",
+    "Vaccinations":557,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.49666,1.356942 ]
+    },
+    "properties": {
+    "City":"Lolwa",
+    "Vaccinations":333,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.030771,1.371186 ]
+    },
+    "properties": {
+    "City":"Mambasa",
+    "Vaccinations":280,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.206081,-0.353061 ]
+    },
+    "properties": {
+    "City":"Alimbongo",
+    "Vaccinations":254,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.036694,-1.113411 ]
+    },
+    "properties": {
+    "City":"Mweso",
+    "Vaccinations":250,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 29.535414,3.048636 ]
+    },
+    "properties": {
+    "City":"Watsa",
+    "Vaccinations":97,
+    "Date Updated":"4/3/19"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 25.212727,0.533953 ]
+    },
+    "properties": {
+    "City":"Kisangani",
+    "Vaccinations":13,
+    "Date Updated":"4/3/19"
+    }
+  }
+]
+}
