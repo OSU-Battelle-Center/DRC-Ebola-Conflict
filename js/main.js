@@ -100,6 +100,20 @@ map.on('load', function() {
             "fill-opacity": 0.25
         }
     });
+    map.on('mouseover', 'cases', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
+                "<b>Confirmed cases:</b> "+e.features[0].properties["case_dat_5"]
+            )
+            //.setHTML(e.features[0].properties.description)
+            .addTo(map);
+    });
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
