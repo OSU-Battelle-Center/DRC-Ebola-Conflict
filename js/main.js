@@ -100,21 +100,31 @@ map.on('load', function() {
             "fill-opacity": 0.25
         }
     });
-    map.on('mouseover', 'Total confirmed cases', function(e) {
-        // Change the cursor style as a UI indicator.
-        map.getCanvas().style.cursor = 'pointer';
+    map.on('mouseenter', 'Total confirmed cases', function(e) {
+      // Change the cursor style as a UI indicator.
+      map.getCanvas().style.cursor = 'pointer';
+
+      var coordinates = e.features[0].geometry.coordinates.slice();
+      var description = e.features[0].properties.description;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+        }
 
         // Populate the popup and set its coordinates
         // based on the feature found.
-        popup.setLngLat(e.features[0].geometry.coordinates)
-            .setHTML(
-                "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
-                "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
-                "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"]
-            )
-            //.setHTML(e.features[0].properties.description)
-            .addTo(map);
-    });
+        popup.setLngLat(coordinates)
+        .setHTML(description)
+        .addTo(map);
+          });
+
+          map.on('mouseleave', 'Total confirmed cases', function() {
+            map.getCanvas().style.cursor = '';
+            popup.remove();
+          });
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
