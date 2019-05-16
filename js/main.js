@@ -1,13 +1,5 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoib3N1LWJhdHRlbGxlLWNlbnRlciIsImEiOiJjanNxaHk0bm4xOGJwM3lwNmxiYjB6bWswIn0.8wMb3NDgrpO-ccAw_hPWUQ';
 
-var scale = new mapboxgl.ScaleControl({
-    maxWidth: 80,
-    unit: 'imperial'
-});
-map.addControl(scale);
-
-scale.setUnit('metric');
-
 var months = [
     'January 2018',
     'February 2018',
