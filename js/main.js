@@ -159,18 +159,17 @@ map.on('load', function() {
                 ["linear"],
                 ["get", "case_dat_5"],
                 0,
-                "hsl(0, 100%, 52%)",
-                245.5,
-                [
-                    "case",
-                    ["has", "case_dat_5"],
-                    "hsl(0, 100%, 51%)",
-                    "hsl(0, 100%, 51%)"
-                ],
-                491,
-                "hsl(0, 100%, 51%)"
+                "hsl(0, 99%, 100%)",
+                56.3,
+                "hsl(0, 100%, 70%)",
+                112.5,
+                "hsl(0, 100%, 60%)",
+                168.8,
+                "hsl(0, 100%, 50%)",
+                225,
+                "hsl(0, 100%, 40%)"
             ],
-            "fill-opacity": 0.25
+            "fill-opacity": 0.75
         }
     });
     map.on('click', 'Total confirmed cases', function (e) {
