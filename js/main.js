@@ -68,11 +68,11 @@ map.on('load', function() {
         data: 'Data/vaccination_count4-19.geojson'
       });
       map.addLayer({
-        id: 'Vaccinations',
-        type: 'circle',
-        source: 'Vaccinations',
-        layout: {},
-        paint: {
+        'id': 'Vaccinations',
+        'type': 'circle',
+        'source': 'Vaccinations',
+        'layout': {},
+        'paint': {
             "circle-radius": [
                 "interpolate",
                 ["linear"],
