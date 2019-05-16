@@ -173,31 +173,22 @@ map.on('load', function() {
             "fill-opacity": 0.25
         }
     });
-    map.on('mouseenter', 'Total confirmed cases', function(e) {
-      // Change the cursor style as a UI indicator.
-      map.getCanvas().style.cursor = 'pointer';
+    map.on('click', 'Total confirmed cases', function (e) {
+      new mapboxgl.Popup()
+      .setLngLat(e.lngLat)
+      .setHTML(e.features[0].properties.name)
+      .addTo(map);
+      });
 
-      var coordinates = e.features[0].geometry.coordinates.slice();
-      var description = e.features[0].properties.description;
+      // Change the cursor to a pointer when the mouse is over the layer.
+      map.on('mouseenter', 'Total confirmed cases', function () {
+        map.getCanvas().style.cursor = 'pointer';
+        });
 
-      // Ensure that if the map is zoomed out such that multiple
-      // copies of the feature are visible, the popup appears
-      // over the copy being pointed to.
-      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-        }
-
-        // Populate the popup and set its coordinates
-        // based on the feature found.
-        popup.setLngLat(coordinates)
-        .setHTML(description)
-        .addTo(map);
-          });
-
-          map.on('mouseleave', 'Total confirmed cases', function() {
-            map.getCanvas().style.cursor = '';
-            popup.remove();
-          });
+        // Change it back to a pointer when it leaves.
+        map.on('mouseleave', 'Total confirmed cases', function () {
+          map.getCanvas().style.cursor = '';
+        });
     map.addSource('pop', {
         type: 'vector',
         url: 'mapbox://osu-battelle-center.26nno8uj'
