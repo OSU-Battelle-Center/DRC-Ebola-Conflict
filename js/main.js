@@ -361,6 +361,7 @@ d3.json('Data/kivu_security.geojson', function(err, data) {
         'id': 'Vaccinations',
         'type': 'circle',
         'source': 'Vaccinations',
+        'source-layer': 'Vaccinations',
         'paint': {
             // make circles larger as the user zooms from z12 to z22
             'circle-radius': [
