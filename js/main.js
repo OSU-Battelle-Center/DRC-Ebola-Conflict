@@ -63,6 +63,80 @@ map.on('load', function() {
         legend.appendChild(item);
       };
 
+      map.addSource('Vaccinations', {
+        type: 'vector',
+        url: 'mapbox://osu-battelle-center.d0qwosp5'
+      });
+      map.addLayer({
+        id: 'Vaccinations',
+        type: 'circle',
+        source: 'Vaccinations',
+        'source-layer': 'vaccinationUpdated-2-2l5ko8',
+        layout: {},
+        paint: {
+            "circle-radius": [
+                "interpolate",
+                ["linear"],
+                ["get", "Vaccinations"],
+                13,
+                [
+                    "case",
+                    ["<=", ["get", "Vaccinations"], 13],
+                    4,
+                    ["<=", ["get", "Vaccinations"], 97],
+                    9,
+                    ["<=", ["get", "Vaccinations"], 333],
+                    15,
+                    ["<=", ["get", "Vaccinations"], 772],
+                    30,
+                    ["<=", ["get", "Vaccinations"], 1466],
+                    45,
+                    [
+                        "match",
+                        ["get", "Vaccinations"],
+                        [0, 1629],
+                        true,
+                        false
+                    ],
+                    47,
+                    ["match", ["get", "Vaccinations"], [2333], true, false],
+                    80,
+                    ["match", ["get", "Vaccinations"], [2970], true, false],
+                    90,
+                    [
+                        "match",
+                        ["get", "Vaccinations"],
+                        [11372],
+                        true,
+                        false
+                    ],
+                    175,
+                    [
+                        "match",
+                        ["get", "Vaccinations"],
+                        [21270],
+                        true,
+                        false
+                    ],
+                    250,
+                    [
+                        "match",
+                        ["get", "Vaccinations"],
+                        [23206],
+                        true,
+                        false
+                    ],
+                    270,
+                    5
+                ],
+                23206,
+                5
+            ],
+            "circle-opacity": 0.33,
+            "circle-color": "hsl(0, 4%, 100%)"
+        }
+      });
+
       map.addSource('Total confirmed cases', {
           type: 'vector',
           url: 'mapbox://osu-battelle-center.07c3yg77'
@@ -352,36 +426,7 @@ d3.json('Data/kivu_security.geojson', function(err, data) {
         //.setHTML(e.features[0].properties.description)
             .addTo(map);
     });
-    map.addSource('Vaccinations', {
-        type: 'geojson',
-        //data: 'https://raw.githubusercontent.com/OSU-Battelle-Center/DRC-Ebola-Conflict/master/Data/vaccinations.geojson'
-        data: 'Data/vaccinations.geojson'
-    });
-    map.addLayer({
-        'id': 'Vaccinations',
-        'type': 'circle',
-        'source': 'Vaccinations',
-        'paint': {
-            // make circles larger as the user zooms from z12 to z22
-            'circle-radius': {
-                property: 'Vaccinations',
-                stops: [
-                [{zoom: 8, value: 0}, 0],
-                [{zoom: 8, value: 100}, 24],
-                [{zoom: 11, value: 0}, 0],
-                [{zoom: 11, value: 100}, 24],
-                [{zoom: 16, value: 0}, 0],
-                [{zoom: 16, value: 100}, 40]
-                ]
-               },
-                //parseInt(
-            // color circles by ethnicity, using a match expression
-            // https://docs.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-            'circle-color': '#00ff00',
-            'circle-stroke-color': '#003300',
-            'circle-stroke-width':1
-            }
-    });
+
     map.on('mouseover', 'Vaccinations', function(e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
