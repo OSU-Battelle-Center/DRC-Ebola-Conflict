@@ -46,8 +46,8 @@ var map = new mapboxgl.Map({
 var icon = "circle";
 
 map.on('load', function() {
-    var layers = ['Violence', 'Refugees', 'Health Clinics', 'Vaccinations', 'Points of Entry'];
-    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#00FF00', '#22ddff'];
+    var layers = ['Violence', 'Refugees', 'Health Clinics', 'Points of Entry'];
+    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#22ddff'];
     for (i = 0; i < layers.length; i++) {
         var layer = layers[i];
         var color = colors[i];
