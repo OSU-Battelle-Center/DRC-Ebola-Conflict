@@ -173,7 +173,7 @@ map.on('load', function() {
             "fill-opacity": 0.25
         }
     });
-    map.on('hover', 'Total confirmed cases', function (e) {
+    map.on('click', 'Total confirmed cases', function (e) {
       new mapboxgl.Popup()
       .setLngLat(e.lngLat)
       .setHTML(
