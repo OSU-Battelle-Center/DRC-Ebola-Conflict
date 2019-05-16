@@ -17,13 +17,13 @@ p {
 
 #map { position:absolute; top:0; bottom:0; width:100%; }
 #menu {
-  background: rgba(200, 200, 200, 0.5);
+  background: rgba(200, 200, 200, 0.7);
   position: absolute;
   z-index: 1;
   top:150px;
   left: 10px;
   border-radius: 3px;
-  width: 200px;
+  width: 180px;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 #menu a {
@@ -69,8 +69,8 @@ p {
 .intro-header {
   font: 18px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
-  background-color: rgba(200, 200, 200, 0.8);
-  width: 300px;
+  background-color: rgba(200, 200, 200, 0.9);
+  width: 200px;
   height: 130px;
   bottom: 10px;
   left: 10px;
@@ -81,13 +81,13 @@ p {
   top: 0;
   height: 130px;
   margin-top: 5px;
-  width: 600px;
+  width: 550px;
 }
 
 .legend-key {
   display: inline-block;
   border-radius: 10%;
-  width: 8px;
+  width: 6px;
   height: 8px;
   margin-right: 5px;
 }
