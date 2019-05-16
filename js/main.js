@@ -64,14 +64,13 @@ map.on('load', function() {
       };
 
       map.addSource('Vaccinations', {
-        type: 'vector',
-        url: 'mapbox://osu-battelle-center.d0qwosp5'
+        type: 'geojson',
+        data: 'Data/vaccination_count4-19.geojson'
       });
       map.addLayer({
         id: 'Vaccinations',
         type: 'circle',
         source: 'Vaccinations',
-        'source-layer': 'vaccinationUpdated-2-2l5ko8',
         layout: {},
         paint: {
             "circle-radius": [
