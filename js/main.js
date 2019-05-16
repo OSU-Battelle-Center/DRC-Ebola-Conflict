@@ -177,7 +177,7 @@ map.on('load', function() {
       new mapboxgl.Popup()
       .setLngLat(e.lngLat)
       .setHTML(
-        "<h2>"+e.features[0].properties["case_dat_5"]+"</h2>"+
+        "<h2>"+e.features[0].properties["ADM2_NAME"]+"</h2>"+
         "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
         "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"])
       .addTo(map);
