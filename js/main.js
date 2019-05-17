@@ -70,7 +70,7 @@ map.on('load', function() {
       map.addLayer({
         'id': 'Vaccinations',
         'type': 'circle',
-        'source': 'Vaccinations',
+        'source': 'Data/vaccination_count4-19.geojson',
         'layout': {},
         'paint': {
             'circle-radius': [
