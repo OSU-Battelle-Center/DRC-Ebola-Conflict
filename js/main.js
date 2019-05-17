@@ -46,8 +46,8 @@ var map = new mapboxgl.Map({
 var icon = "circle";
 
 map.on('load', function() {
-    var layers = ['Violence', 'Refugees', 'Health Clinics', 'Points of Entry'];
-    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#22ddff'];
+    var layers = ['Violence', 'Refugees', 'Health Clinics', 'Points of Entry', 'Vaccinations'];
+    var colors = ['#FF0000', '#FFFF00', '#FFFFFF', '#22ddff', '#22ddff'];
     for (i = 0; i < layers.length; i++) {
         var layer = layers[i];
         var color = colors[i];
@@ -73,10 +73,10 @@ map.on('load', function() {
         'source': 'Vaccinations',
         'layout': {},
         'paint': {
-            "circle-radius": [
-                "interpolate",
-                ["linear"],
-                ["get", "Vaccinations"],
+            'circle-radius': [
+                'interpolate',
+                ['linear'],
+                ['get', 'Vaccinations'],
                 13,
                 [
                     "case",
@@ -131,8 +131,8 @@ map.on('load', function() {
                 23206,
                 5
             ],
-            "circle-opacity": 0.33,
-            "circle-color": "hsl(0, 4%, 100%)"
+            'circle-opacity': 0.33,
+            'circle-color': "hsl(0, 4%, 100%)"
         }
       });
 
