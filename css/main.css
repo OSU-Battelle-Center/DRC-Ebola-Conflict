@@ -17,7 +17,7 @@ p {
 
 #map { position:absolute; top:0; bottom:0; width:100%; }
 #menu {
-  background: rgba(200, 200, 200, 0.7);
+  background: rgba(200, 200, 200, 1);
   position: absolute;
   z-index: 1;
   top:150px;
@@ -32,7 +32,7 @@ p {
   margin: 0px;
   border-color: rgba(200, 200, 200, 0.8);
   outline-color: rgba(200, 200, 200, 0.8);
-  -webkit-border-before-color: rgba(200, 200, 200, 0.8);;
+  -webkit-border-before-color: rgba(200, 200, 200, 1);;
   padding: 5px;
   text-decoration: none;
   border-bottom: 1px solid rgba(0,0,0,0.25);
@@ -47,11 +47,11 @@ p {
 }
 
 #menu a:hover {
-  color: rgba(200, 200, 200, 0.8);
+  color: rgba(200, 200, 200, 1);
 }
 
 #menu a.active {
-  background-color: rgba(200, 200, 200, 0.5);
+  background-color: rgba(200, 200, 200, 1);
 }
 
 #menu a.active:hover {
@@ -69,7 +69,7 @@ p {
 .intro-header {
   font: 18px/25px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
-  background-color: rgba(200, 200, 200, 0.9);
+  background-color: rgba(200, 200, 200, 1);
   width: 200px;
   height: 130px;
   bottom: 10px;
@@ -81,7 +81,7 @@ p {
   top: 0;
   height: 130px;
   margin-top: 5px;
-  width: 550px;
+  width: 450px;
 }
 
 .legend-key {
@@ -94,7 +94,7 @@ p {
 /**Bottom two legend boxes
 */
 .map-overlay .map-overlay-inner {
-  background-color: rgba(200, 200, 200, 0.8);
+  background-color: rgba(200, 200, 200, 1);
   box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
   border-radius: 3px;
   padding: 5px;

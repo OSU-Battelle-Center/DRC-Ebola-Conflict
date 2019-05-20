@@ -169,7 +169,7 @@ map.on('load', function() {
                 225,
                 "hsl(0, 100%, 40%)"
             ],
-            "fill-opacity": 0.75
+            "fill-opacity": 0.50
         }
     });
     map.on('click', 'Total confirmed cases', function (e) {
