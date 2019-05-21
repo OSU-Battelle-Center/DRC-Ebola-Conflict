@@ -71,7 +71,7 @@ map.on('load', function() {
         id: 'Vaccinations',
         type: 'circle',
         source: 'Vaccinations', 
-          'source layer': 'vaccinationUpdated-2-2l5ko8',
+          'source layer': 'vaccinationupdated-2-2l5ko8',
         layout: {},
         paint: {
             'circle-radius': [
