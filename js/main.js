@@ -38,7 +38,7 @@ function filterBy(month) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/osu-battelle-center/cjvfjckvvhg261fnv9juuuj6m',
+    style: 'mapbox://styles/osu-battelle-center/cjvefnopv76ve1gmpwufy4pio',
     center: [27,-0],
     zoom: 6.25
 });
