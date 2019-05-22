@@ -38,7 +38,7 @@ function filterBy(month) {
 
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/osu-battelle-center/cjvyeps4c0a6n1dpc6u4mbvh6',
+    style: 'mapbox://styles/osu-battelle-center/cjvefnopv76ve1gmpwufy4pio',
     center: [27,-0],
     zoom: 6.25
 });
@@ -70,7 +70,7 @@ map.on('load', function() {
       map.addLayer({
         id: 'Vaccinations',
         type: 'circle',
-        source: 'Vaccinations',
+        source: 'Vaccinations', 
           'source layer': 'vaccinationupdated-2-2l5ko8',
         layout: {},
         paint: {
