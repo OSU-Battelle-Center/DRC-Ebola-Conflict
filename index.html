@@ -1,64 +1,390 @@
 <!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>Ebola Conflict Map</title>
-
-
-
-      <link rel="stylesheet" href="css/main.css">
-
-
-</head>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ebola Conflict Map</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+   
 <body>
-
   <html>
-<head>
-    <meta charset='utf-8' />
-    <title>Ebola Conflict Data Map</title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
-    <script src='https://d3js.org/d3.v3.min.js'></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet' />
+  <head>
+  <meta charset='utf-8' />
+  <title>Ebola Conflict Data Map</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://d3js.org/d3.v3.min.js'></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; }
+  </style>
 </head>
+
 <body>
-  <nav id="menu"></nav>
-<div id='map'></div>
-<div class='intro-header' id='features'>
-  <h2>2019 North Kivu Ebola outbreak</h2>
-  <div id='pd'>
+  <nav id= 'menu'></nav>
+  <div id='map'></div>
+  <div class= 'intro-header' id='features'>
+    <h2>2019 North Kivu Ebola Outbreak</h2>
+    <div id='pd'>
       <p>Situational awareness for the ongoing Ebola outbreak in the Democratic Republic of the Congo. Hover or click for details.
-      <br/>See project <a href="https://github.com/OSU-Battelle-Center/DRC-Ebola-Conflict">GitHub</a> for more information.</p>
+      <br/>See project <a href="https://github.com/OSU-Battelle-Center/DRC-Ebola-Response">GitHub</a> for more information.</p>
+    </div>
   </div>
-</div>
-<div class='map-overlay top'>
+  <div class='map-overlay top'>
     <div class='map-overlay-inner'>
-    <h2>Timeline</h2>
-    <label id='month'></label>
-    <input id='slider' type='range' min='0' max='23' step='1' value='0' />
+      <h2>Timeline</h2>
+      <label id='month'></label>
+      <input id='slider' type='range' min='0' max='23' step='1' value='0' />
     </div>
     <div class='map-overlay-inner'>
-    <div id='legend' class='legend'>
-    <div class='bar'></div>
-    <div>Population</div>
+      <div id='legend' class='legend'>
+        <div class='bar'></div>
+        <div>Population</div>
+      </div>
     </div>
-    </div>
-    </div>
-  </body>
+  </div>
+</body>
 </html>
 
+<script>
+  //Creates map object
+  mapboxgl.accessToken = 'pk.eyJ1Ijoib3N1LWJhdHRlbGxlLWNlbnRlciIsImEiOiJjanNxaHk0bm4xOGJwM3lwNmxiYjB6bWswIn0.8wMb3NDgrpO-ccAw_hPWUQ';
+  var months = [
+      'January 2018',
+      'February 2018',
+      'March 2018',
+      'April 2018',
+      'May 2018',
+      'June 2018',
+      'July 2018',
+      'August 2018',
+      'September 2018',
+      'October 2018',
+      'November 2018',
+      'December 2018',
+      'January 2019',
+      'February 2019',
+      'March 2019',
+      'April 2019',
+      'May 2019',
+      'June 2019',
+      'July 2019',
+      'August 2019',
+      'September 2019',
+      'October 2019',
+      'November 2019',
+      'December 2019'
+    ];
 
+    function filterBy(month) {
+      var filters = ['==', 'month', month];
+      map.setFilter('Violence', filters);
+      // Set the label to the month
+      document.getElementById('month').textContent = months[month];
+    }
 
-    <script  src="js/main.js"></script>
-	<script  src="js/population.js"></script>
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/osu-battelle-center/cjvyjosuk0emy1cmsydo0gr09',
+    center: [31.242613, 0.707124],
+    zoom: 5.2
+  });
 
+  var icon = "circle";
 
+  
+    
+  //Ensures map finishes loading before data layers are added
+  map.on('load', function () {
+    //var layers = map.getStyle().layers;
+    var dataLayers = ['Violence', 'Displacement Settlements', 'Health Clinics', 'Points of Entry', 'Vaccinations'];
+    var colors = ['#FF0000', '#FFA500', '#FFFFFF', '#22ddff', '#39ff14'];
+    for (i = 0; i < dataLayers.length; i++) {
+      var layer = dataLayers[i];
+      var color = colors[i];
+      var item = document.createElement('div');
+      var key = document.createElement('span');
+      key.className = 'legend-key';
+      key.style.backgroundColor = color;
 
+      var value = document.createElement('span');
+      value.innerHTML = layer;
+      item.appendChild(key);
+      item.appendChild(value);
+      legend.appendChild(item);
+    };
 
+    map.addSource('Total Confirmed Cases', {
+      type: 'vector',
+      url: 'mapbox://osu-battelle-center.07c3yg77'
+    });
+    map.addLayer({
+      'id': 'Total Confirmed Cases',
+      'type': 'fill',
+      'source': 'Total Confirmed Cases',
+      'source-layer': 'Archive-0p3pwf',
+      'filter': [
+        "match",
+        ["get", "ADM1_NAME"],
+        ["ITURI", "NORD KIVU"],
+        true, false
+      ],
+      'layout': {},
+      'paint': {
+        //Creates gradient
+        'fill-color': [
+          'interpolate',
+          ['linear'],
+          ['get', 'case_dat_5'],
+          0,
+          'hsl(0, 99%, 100%)',
+          56.3,
+          'hsl(0, 100%, 70%)',
+          112.5,
+          'hsl(0, 100%, 60%)',
+          168.8,
+          'hsl(0, 100%, 50%)',
+          225,
+          'hsl(0, 100%, 40%)'
+        ],
+        'fill-opacity': 0.50
+      }
+    });
+    map.on('click', 'Total confirmed cases', function (e) {
+      new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(
+        "<h2>"+e.features[0].properties["ADM2_NAME"]+"</h2>"+
+        "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
+        "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"]).addTo(map);
+    });
 
+    // Change the cursor to a pointer when the mouse is over the layer.
+    map.on('mouseenter', 'Total confirmed cases', function () {
+      map.getCanvas().style.cursor = 'pointer';
+    });
+
+    // Change it back to a pointer when it leaves.
+    map.on('mouseleave', 'Total confirmed cases', function () {
+      map.getCanvas().style.cursor = '';
+    });
+
+    d3.json('Data/kivu_security.geojson', function(err, data) {
+      if (err) throw err;
+      //creates features to filter data for timeline functionality
+      data.features = data.features.map(function(d) {
+        d.properties.year = new Date(d.properties.time).getFullYear();
+        d.properties.month = new Date(d.properties.time).getMonth();
+        if(d.properties.year == 2019){
+          d.properties.month += 12;
+        }
+        return d;
+      });
+
+      map.addSource('Violence', {
+        'type': 'geojson',
+        data: data
+      });
+      map.addLayer({
+        "id": "Violence",
+        "type": "circle",
+        "source": "Violence",
+        "paint": {
+          'circle-radius': {
+              'base': 10,
+              'stops': [[12, 5], [22, 10]]
+          },
+          'circle-color': '#ff1111',
+          'circle-stroke-color': '#770000',
+          'circle-stroke-width':1
+        }
+      });
+      // Create a popup, but don't add it to the map yet.
+      var popup = new mapboxgl.Popup({
+        closeButton: true,
+        closeOnClick: true
+      });
+      map.on('mouseover', 'Violence', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates).setHTML(
+          "<h2>"+e.features[0].properties["0/name"]+"</h2>"+
+          "<b>Date:</b> "+e.features[0].properties["time"]+"<br>"+
+          "<b>Severity:</b> "+e.features[0].properties["severity_rating"]+"<br>"+
+          "<b>Details:</b> "+e.features[0].properties["title/0/en"]
+        ).addTo(map);
+      });
+    
+     map.addSource('Displacement Settlements', {
+        type: 'geojson',
+        data: 'Data/site_assessment_30.geojson'
+      });
+      map.addLayer({
+        'id': 'Displacement Settlements',
+        'type': 'circle',
+        'source': 'Displacement Settlements',
+        'paint': {
+          // circle radius represents number of individuals
+          'circle-radius': [
+            'interpolate',
+            ['linear'], 
+            ['to-number', ['get', 'Individuals']],
+             1300, 20, 2500, 30, 3500, 45, 5000, 50, 7600, 60
+          ],
+          'circle-color': '#FFA500',
+          'circle-opacity': 0.4
+        }
+      });
+      map.on('mouseover', 'Displacement Settlements', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+          .setHTML(
+          "<h2>" + e.features[0].properties["Site"] + "</h2>" +
+          "<b>Date:</b> " + e.features[0].properties["Date"] + " 2018" + "<br>" +
+          "<b>City:</b> " + e.features[0].properties["City"] + "<br>" +
+          "<b>Population:</b> " + e.features[0].properties["Individuals"] + "<br>" + 
+          "<b>Number of Families:</b> " + e.features[0].properties["Number of Menages"]
+        ).addTo(map);
+      });
+      
+      map.addSource('Points of Entry', {
+        type: 'geojson',
+        data: 'Data/POE-working-list.geojson'
+      });
+      map.addLayer({
+        'id': 'Points of Entry',
+        'type': 'circle',
+        'source': 'Points of Entry',
+        'paint': {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': {
+            'base': 5,
+            'stops': [[12, 5], [22, 10]]
+          },
+          'circle-color': '#22ddff',
+          'circle-stroke-color': '#0033dd',
+          'circle-stroke-width':2
+        }
+      });
+      map.on('mouseover', 'Points of Entry', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+          .setHTML(
+          "<h2>POE: "+e.features[0].properties["Name"]+"</h2>"+
+          "<b>Type:</b> "+e.features[0].properties["Type"]
+        ).addTo(map);
+      });
+
+      //ADD VACCINATION DATA
+      map.addSource('Vaccinations', {
+        type: 'geojson',
+        data: 'Data/vaccination_count4-19.geojson'
+      });
+      map.addLayer({
+        'id': 'Vaccinations',
+        'type': 'circle',
+        'source': 'Vaccinations',
+        'paint': {
+          'circle-radius': 
+            [
+            'interpolate',
+            ['linear'], 
+            ['number', ['get', 'Vaccinations']],
+            13, 5, 100, 8, 557, 12, 1025, 15, 1700, 20, 3000, 30, 12000, 50, 25000, 75
+            ], 
+          'circle-color': '#39ff14',
+          'circle-opacity': 0.3
+        }
+      });
+      map.on('mouseover', 'Vaccinations', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates
+        // based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+            .setHTML(
+                "<h2>"+e.features[0].properties["City"]+"</h2>"+
+                "<b>Date Modified:</b> "+e.features[0].properties["Date Updated"]+"<br>"+
+                "<b>Vaccinations:</b> "+e.features[0].properties["Vaccinations"]
+            ).addTo(map);
+      });
+      map.addSource('Health Clinics', {
+        type: 'geojson',
+        data: 'Data/drc-healthsites.geojson'
+      });
+      map.addLayer({
+        'id': 'Health Clinics',
+        'type': 'circle',
+        'source': 'Health Clinics',
+        'paint': {
+          // make circles larger as the user zooms from z12 to z22
+          'circle-radius': {
+            'base': 10,
+            'stops': [[12, 4], [22, 10]]
+          },
+          'circle-color': '#ffffff',
+          'circle-stroke-color': '#555555',
+          'circle-stroke-width':1
+        }
+      });
+      map.on('mouseover', 'Health Clinics', function(e) {
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        //variable to convert timestamp into normal date
+        var date = new Date(e.features[0].properties["date_modified"]);
+        
+        // Populate the popup and set its coordinates based on the feature found.
+        popup.setLngLat(e.features[0].geometry.coordinates)
+          .setHTML(
+            "<h2>Health Site: " + e.features[0].properties["name"] + "</h2>"+
+            "<b>Date Modified:</b> " + date.toDateString() + "<br>" +
+            "<b>Type:</b> " + e.features[0].properties['nature-of-facility']
+          ).addTo(map);
+      });
+    });
+    
+    filterBy(0);
+    document.getElementById('slider').addEventListener('input', function(e) {
+      var month = parseInt(e.target.value, 10);
+      filterBy(month);
+    });
+    var toggleableLayerIds = ['Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
+    for (var i = 0; i < toggleableLayerIds.length; i++) {
+      var id = toggleableLayerIds[i];
+      var link = document.createElement('a');
+      link.href = '#';
+      link.className = 'active';
+      link.textContent = id;
+      link.onclick = function (e) {
+        var clickedLayer = this.textContent;
+        e.preventDefault();
+        e.stopPropagation();
+        var visibility = map.getLayoutProperty(clickedLayer, 'visibility');
+        if (visibility === 'visible') {
+          map.setLayoutProperty(clickedLayer, 'visibility', 'none');
+          this.className = '';
+        } else {
+          this.className = 'active';
+          map.setLayoutProperty(clickedLayer, 'visibility', 'visible');
+        }
+      };
+      var layers = document.getElementById('menu');
+      layers.appendChild(link);
+    }
+  });
+</script>
 </body>
-
 </html>
