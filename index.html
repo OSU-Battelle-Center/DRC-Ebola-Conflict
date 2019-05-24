@@ -5,7 +5,7 @@
     <title>Ebola Conflict Map</title>
     <link rel="stylesheet" href="css/main.css">
   </head>
-   
+
 <body>
   <html>
   <head>
@@ -94,8 +94,8 @@
 
   var icon = "circle";
 
-  
-    
+
+
   //Ensures map finishes loading before data layers are added
   map.on('load', function () {
     //var layers = map.getStyle().layers;
@@ -149,7 +149,7 @@
           225,
           'hsl(0, 100%, 40%)'
         ],
-        'fill-opacity': 0.50
+        'fill-opacity': ["case", ["has", "case_dat_5"], 0.30, 0]
       }
     });
     map.on('click', 'Total confirmed cases', function (e) {
@@ -217,7 +217,7 @@
           "<b>Details:</b> "+e.features[0].properties["title/0/en"]
         ).addTo(map);
       });
-    
+
      map.addSource('Displacement Settlements', {
         type: 'geojson',
         data: 'Data/site_assessment_30.geojson'
@@ -230,7 +230,7 @@
           // circle radius represents number of individuals
           'circle-radius': [
             'interpolate',
-            ['linear'], 
+            ['linear'],
             ['to-number', ['get', 'Individuals']],
              1300, 20, 2500, 30, 3500, 45, 5000, 50, 7600, 60
           ],
@@ -249,11 +249,11 @@
           "<h2>" + e.features[0].properties["Site"] + "</h2>" +
           "<b>Date:</b> " + e.features[0].properties["Date"] + " 2018" + "<br>" +
           "<b>City:</b> " + e.features[0].properties["City"] + "<br>" +
-          "<b>Population:</b> " + e.features[0].properties["Individuals"] + "<br>" + 
+          "<b>Population:</b> " + e.features[0].properties["Individuals"] + "<br>" +
           "<b>Number of Families:</b> " + e.features[0].properties["Number of Menages"]
         ).addTo(map);
       });
-      
+
       map.addSource('Points of Entry', {
         type: 'geojson',
         data: 'Data/POE-working-list.geojson'
@@ -296,13 +296,13 @@
         'type': 'circle',
         'source': 'Vaccinations',
         'paint': {
-          'circle-radius': 
+          'circle-radius':
             [
             'interpolate',
-            ['linear'], 
+            ['linear'],
             ['number', ['get', 'Vaccinations']],
             13, 5, 100, 8, 557, 12, 1025, 15, 1700, 20, 3000, 30, 12000, 50, 25000, 75
-            ], 
+            ],
           'circle-color': '#39ff14',
           'circle-opacity': 0.3
         }
@@ -345,7 +345,7 @@
 
         //variable to convert timestamp into normal date
         var date = new Date(e.features[0].properties["date_modified"]);
-        
+
         // Populate the popup and set its coordinates based on the feature found.
         popup.setLngLat(e.features[0].geometry.coordinates)
           .setHTML(
@@ -355,7 +355,7 @@
           ).addTo(map);
       });
     });
-    
+
     filterBy(0);
     document.getElementById('slider').addEventListener('input', function(e) {
       var month = parseInt(e.target.value, 10);
