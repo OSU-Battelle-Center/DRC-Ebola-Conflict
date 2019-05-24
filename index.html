@@ -116,6 +116,10 @@
       legend.appendChild(item);
     };
 
+    //add scale to map
+    map.addControl(new mapboxgl.ScaleControl({position: 'bottom-left'}));
+
+    //add case data to map
     map.addSource('Total Confirmed Cases', {
       type: 'vector',
       url: 'mapbox://osu-battelle-center.07c3yg77'
