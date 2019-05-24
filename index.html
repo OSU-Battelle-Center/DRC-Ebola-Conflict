@@ -152,7 +152,7 @@
         'fill-opacity': ["case", ["has", "case_dat_5"], 0.30, 0]
       }
     });
-    map.on('click', 'Total confirmed cases', function (e) {
+    map.on('click', 'Total Confirmed Cases', function (e) {
       new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(
         "<h2>"+e.features[0].properties["ADM2_NAME"]+"</h2>"+
         "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
@@ -160,12 +160,12 @@
     });
 
     // Change the cursor to a pointer when the mouse is over the layer.
-    map.on('mouseenter', 'Total confirmed cases', function () {
+    map.on('mouseenter', 'Total Confirmed Cases', function () {
       map.getCanvas().style.cursor = 'pointer';
     });
 
     // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'Total confirmed cases', function () {
+    map.on('mouseleave', 'Total Confirmed Cases', function () {
       map.getCanvas().style.cursor = '';
     });
 
