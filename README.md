@@ -1,5 +1,5 @@
 ## DRC-Ebola-Conflict
-Open-source situational awareness portal for the ongoing Ebola outbreak in North Kivu, Democratic Republic of the Congo. A project of the Battelle Center for Science, Engineering and Public Policy at The Ohio State University.
+Open-source situational awareness portal for the ongoing Ebola outbreak in North Kivu, Democratic Republic of the Congo. A project of the Battelle Center for Science, Engineering and Public Policy at The Ohio State University. Read about the problem context and project rationale [here](https://medium.com/the-battelle-center-for-science-engineering-and/an-open-source-geospatial-application-to-support-the-ebola-response-d53b81fad9a4).
 
 ![](https://github.com/OSU-Battelle-Center/DRC-Ebola-Response/blob/master/Images/most_recent_master.png)
 
