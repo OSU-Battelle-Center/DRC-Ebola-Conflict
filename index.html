@@ -110,7 +110,7 @@
   function switchLayer(layer) {
   var layerId = layer.target.id;
   map.setStyle('mapbox://styles/mapbox/' + layerId);
-  
+  map.setData();
   }
   
   for (var i = 0; i < inputs.length; i++) {
@@ -118,7 +118,6 @@
   }
 
   var icon = "circle";
-
 
 
   //Ensures map finishes loading before data layers are added
@@ -144,6 +143,7 @@
     //add scale to map
     map.addControl(new mapboxgl.ScaleControl({position: 'bottom-left'}));
 
+function addDataLayer(){
     //add case data to map
     map.addSource('Total Confirmed Cases', {
       type: 'vector',
@@ -384,7 +384,12 @@
           ).addTo(map);
       });
     });
-
+}
+map.on('style.load', function () {
+  // Triggered when `setStyle` is called.
+  addDataLayer();
+});
+addDataLayer();
     filterBy(0);
     document.getElementById('slider').addEventListener('input', function(e) {
       var month = parseInt(e.target.value, 10);
