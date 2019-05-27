@@ -26,6 +26,14 @@ p {
   width: 180px;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
+#menu-styles{
+  position: absolute;
+  bottom: 50px;
+  right: 25px;
+  background: rgba(200, 200, 200, 0.8);
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  }
 #menu a {
   font-size: 15px;
   display: block;
