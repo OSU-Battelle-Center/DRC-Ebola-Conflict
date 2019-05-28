@@ -35,9 +35,9 @@
     <label for='satellite'>satellite</label>
     </div>
   <div class= 'intro-header' id='features'>
-    <h2>2019 North Kivu Ebola Outbreak</h2>
+    <h2>Ebola Response Platform</h2>
     <div id='pd'>
-      <p>Situational awareness for the ongoing Ebola outbreak in the Democratic Republic of the Congo. Hover or click for details.
+      <p>Situational awareness for the ongoing Ebola outbreak in the Democratic Republic of the Congo.
       <br/>See project <a href="https://github.com/OSU-Battelle-Center/DRC-Ebola-Response">GitHub</a> for more information.</p>
     </div>
   </div>
@@ -444,18 +444,10 @@ function addDataLayer(){
       });
       map.addLayer({
         'id': 'Health Clinics',
-        'type': 'circle',
+        'type': 'symbol',
         'source': 'Health Clinics',
-        'paint': {
-          // make circles larger as the user zooms from z12 to z22
-          'circle-radius': {
-            'base': 10,
-            'stops': [[12, 4], [22, 10]]
-          },
-          'circle-color': '#ffffff',
-          'circle-stroke-color': '#555555',
-          'circle-stroke-width':1
-        }
+        "layout": {"icon-image": "hospital-15"},
+        "paint": {}
       });
       map.on('mouseover', 'Health Clinics', function(e) {
         // Change the cursor style as a UI indicator.
