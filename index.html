@@ -16,7 +16,6 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://api.mapbox.com/mapbox.js/plugins/turf/v3.0.11/turf.min.js'></script>
   <style>
     body { margin:0; padding:0; }
     #map { position:absolute; top:0; bottom:0; width:100%; }
@@ -27,10 +26,14 @@
   <nav id= 'menu'></nav>
   <div id='map'></div>
   <div id='menu-styles'>
+    <input id='streets-v11' type='radio' name='rtoggle' value='streets' checked='checked'>
+    <label for='streets'>streets</label>
     <input id='light-v10' type='radio' name='rtoggle' value='light'>
     <label for='light'>light</label>
-    <input id='dark-v10' type='radio' name='rtoggle' value='dark' checked='checked'>
+    <input id='dark-v10' type='radio' name='rtoggle' value='dark'>
     <label for='dark'>dark</label>
+    <input id='outdoors-v11' type='radio' name='rtoggle' value='outdoors'>
+    <label for='outdoors'>outdoors</label>
     <input id='satellite-v9' type='radio' name='rtoggle' value='satellite'>
     <label for='satellite'>satellite</label>
     </div>
@@ -49,8 +52,6 @@
     </div>
     <div class='map-overlay-inner'>
       <div id='legend' class='legend'>
-        <div class='bar'></div>
-        <div>Population</div>
       </div>
     </div>
   </div>
@@ -103,13 +104,13 @@
 
   var layerList = document.getElementById('menu-styles');
   var inputs = layerList.getElementsByTagName('input');
-
+  
   function switchLayer(layer) {
   var layerId = layer.target.id;
   map.setStyle('mapbox://styles/mapbox/' + layerId);
   map.setData();
   }
-
+  
   for (var i = 0; i < inputs.length; i++) {
   inputs[i].onclick = switchLayer;
   }
