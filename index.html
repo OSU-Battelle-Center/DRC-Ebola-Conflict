@@ -42,13 +42,13 @@
   </div>
   <div class='map-overlay top'>
     <div class='map-overlay-inner'>
+      <div id='legend' class='legend'>
+      </div>
+    </div>
+    <div class='map-overlay-timeline'>
       <h2>Timeline</h2>
       <label id='month'></label>
       <input id='slider' type='range' min='0' max='23' step='1' value='0' />
-    </div>
-    <div class='map-overlay-inner'>
-      <div id='legend' class='legend'>
-      </div>
     </div>
   </div>
 </body>
@@ -117,8 +117,8 @@
   //Ensures map finishes loading before data layers are added
   map.on('load', function () {
     //var layers = map.getStyle().layers;
-    var dataLayers = ['Violence', 'Displacement Settlements', 'Health Clinics', 'Points of Entry', 'Vaccinations'];
-    var colors = ['#FF0000', '#FFA500', '#FFFFFF', '#22ddff', '#39ff14'];
+    var dataLayers = ['','','','','',''];
+    var colors = ['#FF0000', '#FFA500', '#FFFFFF',  '#39ff14','#22ddff', 'ffcccc'];
     for (i = 0; i < dataLayers.length; i++) {
       var layer = dataLayers[i];
       var color = colors[i];
@@ -129,8 +129,16 @@
 
       var value = document.createElement('span');
       value.innerHTML = layer;
-      item.appendChild(key);
-      item.appendChild(value);
+      if(color=='#FFFFFF'){
+        var img = document.createElement('img');
+        img.src = "Images/icons/hospital-15.svg"
+        img.style="height:20px;width:20px";
+        item.appendChild(img);
+      }
+      else
+        item.appendChild(key);
+      
+      //item.appendChild(value);
       legend.appendChild(item);
     };
 
