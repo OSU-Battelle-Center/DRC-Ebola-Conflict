@@ -27,7 +27,7 @@ p {
   border-color: #fff;
   outline-width: 2px;
   width: 220px;
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Consolas', Arial, Helvetica, sans-serif;
 }
 #menu-styles{
   position: absolute;
@@ -36,7 +36,7 @@ p {
   background-color: hsl(55,1%,20%);
   border: 1px solid white;
   padding: 10px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Consolas', sans-serif;
   -webkit-text-fill-color: #fff;
   }
 #menu a {
@@ -70,7 +70,7 @@ p {
   background: #3074a4;
 }
 .map-overlay {
-  font: 15px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font: 15px/30px 'Consolas', Arial, Helvetica, sans-serif;
   position: absolute;
   width: 310px;
   top: 150px;
@@ -78,7 +78,7 @@ p {
   border-radius: 3px;
 }
 .intro-header {
-  font: 18px/25px 'Avant Garde', Arial, Helvetica, sans-serif;
+  font: 18px/25px 'Consolas', Arial, Helvetica, sans-serif;
   position: absolute;
   background-color: rgba(51, 51, 50, 0.5);
   -webkit-text-fill-color: #fff;
@@ -94,7 +94,7 @@ p {
   top: 0;
   height: 130px;
   margin-top: 5px;
-  width: 325px;
+  width: 350px;
 }
 
 .legend-key {
@@ -143,7 +143,7 @@ p {
 }
 .mapboxgl-popup {
   max-width: 400px;
-  font: 20px/35px 'Helvetica Neue', Arial, Helvetica, sans-serif,bold;
+  font: 20px/35px 'Consolas', Arial, Helvetica, sans-serif,bold;
 }
 .mapboxgl-popup-content {
   background: #f5c0c0;
