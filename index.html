@@ -359,8 +359,8 @@ function addDataLayer(){
             ['number', ['get', 'Vaccinations']],
             13, 5, 100, 8, 557, 12, 1025, 15, 1700, 20, 3000, 30, 12000, 50, 25000, 75
             ],
-          'circle-color': '#39ff14',
-          'circle-opacity': 0.3
+          'circle-color': '#ffffff',
+          'circle-opacity': 0.2
         }
       });
       map.on('mouseover', 'Vaccinations', function(e) {
@@ -414,7 +414,7 @@ addDataLayer();
       var month = parseInt(e.target.value, 10);
       filterBy(month);
     });
-    var toggleableLayerIds = ['Population', 'Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
+    var toggleableLayerIds = ['Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases', 'Population'];
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
       var link = document.createElement('a');
