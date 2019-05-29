@@ -21,34 +21,36 @@ p {
   background: rgba(200,200,200, 0.8);
   position: absolute;
   z-index: 1;
-  top:150px;
-  left: 10px;
+  top:155px;
+  left: 40px;
   border-radius: 3px;
-  width: 180px;
+  border-color: #fff;
+  outline-width: 2px;
+  width: 220px;
   font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 #menu-styles{
   position: absolute;
   bottom: 50px;
   right: 25px;
-  background: rgba(255, 255, 255, 1);
+  background-color: hsl(55,1%,20%);
+  border: 1px solid white;
   padding: 10px;
   font-family: 'Open Sans', sans-serif;
+  -webkit-text-fill-color: #fff;
   }
 #menu a {
   font-size: 15px;
   display: block;
-  margin: 0px;
-  border-color: rgba(200, 200, 200, 0.4);
-  outline-color: rgba(200, 200, 200, 0.4);
-  -webkit-border-before-color: rgba(200, 200, 200, 0.4);;
+  margin: 1px;
+  -webkit-border-before-color: rgba(200, 200, 200, 1);
   padding: 5px;
   text-decoration: none;
-  border-bottom: 1px solid rgba(0,0,0,0.25);
   border-radius: 2px;
-  text-align: center;
+  text-align: left;
   text-emphasis-color: #000000;
   -webkit-text-fill-color: #000000;
+  border: 1px solid white;
 }
 
 #menu a:last-child {
@@ -70,22 +72,23 @@ p {
 .map-overlay {
   font: 15px/30px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   position: absolute;
-  width: 200px;
-  bottom: 25px;
-  left: 0px;
-  padding: 10px;
+  width: 310px;
+  top: 150px;
+  left: 10px;
   border-radius: 3px;
 }
 .intro-header {
   font: 18px/25px 'Avant Garde', Arial, Helvetica, sans-serif;
   position: absolute;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(51, 51, 50, 0.5);
+  -webkit-text-fill-color: #fff;
   width: 200px;
   height: 130px;
   bottom: 10px;
   left: 10px;
   padding: 0px;
   border-radius: 3px;
+  outline-width: 2px;
 }
 #features {
   top: 0;
@@ -97,18 +100,31 @@ p {
 .legend-key {
   display: inline-block;
   border-radius: 10%;
-  width: 6px;
+  width: 20px;
   height: 8px;
   margin-right: 5px;
+  border-radius: 3px;
+  outline-width: 2px;
 }
 /**Bottom two legend boxes
 */
 .map-overlay .map-overlay-inner {
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(51, 51, 50, 0.5);
   box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+  -webkit-text-fill-color: #fff;
   border-radius: 3px;
   padding: 5px;
   margin-bottom: 25px;
+  width: 242px;
+}
+.map-overlay .map-overlay-timeline {
+  background-color: rgba(51, 51, 50, 0.5);
+  box-shadow:0 1px 2px rgba(0, 0, 0, 0.20);
+  -webkit-text-fill-color: #fff;
+  border-radius: 3px;
+  padding: 5px;
+  margin-bottom: 25px;
+  width: 242px;
 }
 
 .map-overlay h2 {
@@ -131,4 +147,10 @@ p {
 }
 .mapboxgl-popup-content {
   background: #f5c0c0;
+}
+a:link{
+  color:rgb(0, 204, 255);
+}
+a:visited{
+  color:rgb(0, 204, 255);
 }
