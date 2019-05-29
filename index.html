@@ -136,7 +136,7 @@
       }
       else
         item.appendChild(key);
-      
+
       //item.appendChild(value);
       legend.appendChild(item);
     };
@@ -148,81 +148,15 @@
 function addDataLayer(){
 
     //add population to map
-    map.addSource('DRC Population', {
+    map.addSource('Population', {
       type: 'vector',
-      url: 'mapbox://osu-battelle-center.8xt030ov'
+      url: 'mapbox://osu-battelle-center.d5afbhtv'
     });
     map.addLayer({
-      'id': 'DRC Population',
+      'id': 'Population',
       'type': 'fill',
-      'source': 'DRC Population',
-      'source-layer': 'population_polygonized',
-      "layout": {},
-      "paint": {
-          "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "DN"],
-              3,
-              "hsl(56, 100%, 65%)",
-              166,
-              "hsl(56, 100%, 0%)"
-          ]
-      }
-    });
-    map.addSource('Uganda Population', {
-      type: 'vector',
-      url: 'mapbox://osu-battelle-center.b0gecg01'
-    });
-    map.addLayer({
-      'id': 'Uganda Population',
-      'type': 'fill',
-      'source': 'Uganda Population',
-      'source-layer': 'uganda_pop_poly',
-      "layout": {},
-      "paint": {
-          "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "DN"],
-              3,
-              "hsl(56, 100%, 65%)",
-              166,
-              "hsl(56, 100%, 0%)"
-          ]
-      }
-    });
-    map.addSource('Rwanda Population', {
-      type: 'vector',
-      url: 'mapbox://osu-battelle-center.3bz2tpac'
-    });
-    map.addLayer({
-      'id': 'Rwanda Population',
-      'type': 'fill',
-      'source': 'Rwanda Population',
-      'source-layer': 'rwanda_pop_poly',
-      "layout": {},
-      "paint": {
-          "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "DN"],
-              3,
-              "hsl(56, 100%, 65%)",
-              166,
-              "hsl(56, 100%, 0%)"
-          ]
-      }
-    });
-    map.addSource('Burundi Population', {
-      type: 'vector',
-      url: 'mapbox://osu-battelle-center.2iti031y'
-    });
-    map.addLayer({
-      'id': 'Burundi Population',
-      'type': 'fill',
-      'source': 'Burundi Population',
-      'source-layer': 'bdi_pop_poly',
+      'source': 'Population',
+      'source-layer': 'population',
       "layout": {},
       "paint": {
           "fill-color": [
@@ -480,7 +414,7 @@ addDataLayer();
       var month = parseInt(e.target.value, 10);
       filterBy(month);
     });
-    var toggleableLayerIds = ['Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
+    var toggleableLayerIds = ['Population', 'Violence','Displacement Settlements', 'Health Clinics','Vaccinations','Points of Entry', 'Total Confirmed Cases'];
     for (var i = 0; i < toggleableLayerIds.length; i++) {
       var id = toggleableLayerIds[i];
       var link = document.createElement('a');
