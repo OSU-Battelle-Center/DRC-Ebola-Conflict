@@ -116,8 +116,8 @@
   //Ensures map finishes loading before data layers are added
   map.on('load', function () {
     //var layers = map.getStyle().layers;
-    var dataLayers = ['','','','','',''];
-    var colors = ['#FF0000', '#FFA500', '#FFFFFF',  '#39ff14','#22ddff', 'ffcccc'];
+    var dataLayers = ['','','','','','',''];
+    var colors = ['#FF0000', '#FFA500', '#FFFFFF',  '#39ff14','#22ddff', '#ffcccc','#ffff00'];
     for (i = 0; i < dataLayers.length; i++) {
       var layer = dataLayers[i];
       var color = colors[i];
@@ -157,7 +157,9 @@ function addDataLayer(){
       'type': 'fill',
       'source': 'Population',
       'source-layer': 'population',
-      "layout": {},
+      "layout": {
+        'visibility':'none'
+      },
       "paint": {
           "fill-color": [
               "interpolate",
@@ -187,7 +189,9 @@ function addDataLayer(){
         ["ITURI", "NORD KIVU"],
         true, false
       ],
-      'layout': {},
+      'layout': {
+        'visibility':'none'
+      },
       'paint': {
         //Creates gradient
         'fill-color': [
@@ -245,6 +249,9 @@ function addDataLayer(){
         "id": "Violence",
         "type": "circle",
         "source": "Violence",
+        'layout': {
+          'visibility':'none'
+        },
         "paint": {
           'circle-radius': {
               'base': 7,
@@ -282,6 +289,9 @@ function addDataLayer(){
         'id': 'Displacement Settlements',
         'type': 'circle',
         'source': 'Displacement Settlements',
+        'layout': {
+          'visibility':'none'
+        },
         'paint': {
           // circle radius represents number of individuals
           'circle-radius': [
@@ -318,6 +328,9 @@ function addDataLayer(){
         'id': 'Points of Entry',
         'type': 'circle',
         'source': 'Points of Entry',
+        'layout': {
+          'visibility':'none'
+        },
         'paint': {
           // make circles larger as the user zooms from z12 to z22
           'circle-radius': {
@@ -351,6 +364,9 @@ function addDataLayer(){
         'id': 'Vaccinations',
         'type': 'circle',
         'source': 'Vaccinations',
+        'layout': {
+          'visibility':'none'
+       },
         'paint': {
           'circle-radius':
             [
@@ -384,7 +400,9 @@ function addDataLayer(){
         'id': 'Health Clinics',
         'type': 'symbol',
         'source': 'Health Clinics',
-        "layout": {"icon-image": "hospital-15"},
+        "layout": {
+          'visibility':'none',
+          "icon-image": "hospital-15"},
         "paint": {}
       });
       map.on('mouseover', 'Health Clinics', function(e) {
@@ -419,7 +437,7 @@ addDataLayer();
       var id = toggleableLayerIds[i];
       var link = document.createElement('a');
       link.href = '#';
-      link.className = 'active';
+      link.className = '';
       link.textContent = id;
       link.onclick = function (e) {
         var clickedLayer = this.textContent;

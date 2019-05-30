@@ -73,7 +73,7 @@ p {
   font: 15px/30px 'Consolas', Arial, Helvetica, sans-serif;
   position: absolute;
   width: 310px;
-  top: 150px;
+  top: 155px;
   left: 10px;
   border-radius: 3px;
 }
@@ -101,7 +101,7 @@ p {
   display: inline-block;
   border-radius: 10%;
   width: 20px;
-  height: 8px;
+  height: 15px;
   margin-right: 5px;
   border-radius: 3px;
   outline-width: 2px;
@@ -128,7 +128,7 @@ p {
 }
 
 .map-overlay h2 {
-  line-height: 18px;
+  line-height: 20px;
   display: block;
   margin: 0 0 5px;
 }
