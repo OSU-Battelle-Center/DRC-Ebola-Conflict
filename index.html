@@ -117,7 +117,7 @@
   map.on('load', function () {
     //var layers = map.getStyle().layers;
     var dataLayers = ['','','','','','',''];
-    var colors = ['#FF0000', '#FFA500', '#FFFFFF',  '#39ff14','#22ddff', '#ffcccc','#ffff00'];
+    var colors = ['#FF0000', '#FFA500', '#FFFFFF',  '#fefefe','#22ddff', '#ffcccc','#ffff00'];
     for (i = 0; i < dataLayers.length; i++) {
       var layer = dataLayers[i];
       var color = colors[i];
@@ -198,18 +198,13 @@ function addDataLayer(){
           'interpolate',
           ['linear'],
           ['get', 'case_dat_5'],
-          0,
-          'rgba(255,255,255,0)',
-          56.3,
-          'rgba(255,200,200,0.6)',
-          112.5,
-          'rgba(176,155,126,0.6)',
-          168.8,
-          'rgba(176,155,126,0.8)',
-          225,
-          'rgba(176,155,126,1)'
-        ],
-        'fill-opacity': ["case", ["has", "case_dat_5"], 1.0, 0]
+          0,'hsl(0, 99%, 100%)',
+          56.3,	'hsl(0, 100%, 70%)',
+          112.5,'hsl(0, 100%, 60%)',
+          168.8,'hsl(0, 100%, 50%)',
+          225,'hsl(0, 100%, 40%)'	      
+        ],	  
+        'fill-opacity': ["case", ["has", "case_dat_5"], 0.30, 0]
       }
     });
     map.on('click', 'Total Confirmed Cases', function (e) {
@@ -377,7 +372,7 @@ function addDataLayer(){
             ['number', ['get', 'Vaccinations']],
             13, 5, 100, 8, 557, 12, 1025, 15, 1700, 20, 3000, 30, 12000, 50, 25000, 75
             ],
-          'circle-color': '#ff00ff',
+          'circle-color': '#ffffff',
           'circle-opacity': 0.2
         }
       });
