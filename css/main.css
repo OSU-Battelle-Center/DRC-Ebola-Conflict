@@ -54,7 +54,7 @@ p {
 }
 
 #menu a:last-child {
-  border: none;
+  border: 1px solid white;
 }
 
 #menu a:hover {
