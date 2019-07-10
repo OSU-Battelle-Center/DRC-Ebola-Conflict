@@ -176,13 +176,13 @@ function addDataLayer(){
     //add case data to map
     map.addSource('Total Confirmed Cases', {
       type: 'vector',
-      url: 'mapbox://osu-battelle-center.07c3yg77'
+      url: 'mapbox://osu-battelle-center.494qf888'
     });
     map.addLayer({
       'id': 'Total Confirmed Cases',
       'type': 'fill',
       'source': 'Total Confirmed Cases',
-      'source-layer': 'Archive-0p3pwf',
+      'source-layer': 'case_data_updated_june19-ba4j73',
       'filter': [
         "match",
         ["get", "ADM1_NAME"],
@@ -197,20 +197,20 @@ function addDataLayer(){
         'fill-color': [
           'interpolate',
           ['linear'],
-          ['get', 'case_dat_5'],
+          ['get', 'case_dat43'],
           0,'hsl(0, 99%, 100%)',
           56.3,	'hsl(0, 100%, 70%)',
           112.5,'hsl(0, 100%, 60%)',
           168.8,'hsl(0, 100%, 50%)',
           225,'hsl(0, 100%, 40%)'	      
         ],	  
-        'fill-opacity': ["case", ["has", "case_dat_5"], 0.30, 0]
+        'fill-opacity': ["case", ["has", "case_dat43"], 0.30, 0]
       }
     });
     map.on('click', 'Total Confirmed Cases', function (e) {
       new mapboxgl.Popup().setLngLat(e.lngLat).setHTML(
         "<h2>"+e.features[0].properties["ADM2_NAME"]+"</h2>"+
-        "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat_5"]+"<br>"+
+        "<b>Total confirmed cases:</b> "+e.features[0].properties["case_dat43"]+"<br>"+
         "<b>Health zone:</b> "+e.features[0].properties["ADM2_NAME"]).addTo(map);
     });
 
